@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="app">
+      
+      <posts></posts>
+      
+    </div>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+      Vue.component('posts', {
+        template: `<h1>I am talking of within my component</h1>`
+      });
+
+      let vm = new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello'          
+        }
+      });
+    </script>
+  </body>
+</html>

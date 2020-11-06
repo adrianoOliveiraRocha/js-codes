@@ -1,0 +1,23 @@
+{
+  "name": "catastrophe",
+  "version": "1.0.0",
+  "description": "I am just learn react",
+  "main": "index.js",
+  "scripts": {
+    "build": "node_modules/.bin/webpack",
+    "start": "node_modules/.bin/webpack-dev-server"
+  },
+  "author": "Adriano Oliveira",
+  "license": "ISC",
+  "dependencies": {
+    "jshint": "^2.9.7",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "react-jsx": "^1.0.0",
+    "webpack": "^3.12.0",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "devDependencies": {
+    "webpack": "^3.12.0"
+  }
+}

@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Binding inline style</title>
+  </head>
+  <body>
+    <div id="app">
+      <div :style="{color: 'red', fontSize: fontSize + 'px'}">{{ message }}</div>
+      <div :style="styleObject">{{message}}</div>
+      <!-- the styleObject1 overrid the styleObject -->
+      <div :style="[styleObject, styleObject1]">{{message}}</div>
+      
+    </div>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+      let vm = new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello',
+          fontSize: 50,
+
+          styleObject: {
+            color: 'blue',
+            fontSize: '100px',
+          },    
+          
+          styleObject1: {
+            color: 'yellow',
+            fontSize: '150px',
+          }, 
+
+        }
+      });
+    </script>
+  </body>
+</html>

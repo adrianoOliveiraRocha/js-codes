@@ -1,0 +1,15 @@
+{
+  "name": "test_promise",
+  "version": "1.0.0",
+  "description": "This is just a test",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adriano Oliveira",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^5.16.0",
+    "mysql": "^2.17.1"
+  }
+}

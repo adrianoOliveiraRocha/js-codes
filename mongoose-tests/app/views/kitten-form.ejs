@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <%-include('./include/links.ejs')%>
+  </head>
+  <body>
+    <%-include('./include/nav.ejs')%>
+
+    <div class="container">
+      <form action="/new-kitten" method="post">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" placeholder="Enter name" 
+            name="name" required>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form> 
+    </div>
+  </body>
+</html>

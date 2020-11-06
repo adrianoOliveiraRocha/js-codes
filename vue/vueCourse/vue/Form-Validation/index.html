@@ -1,0 +1,102 @@
+<html>
+  <head>
+
+    <meta charset='utf-8' />
+    <title>Form Validation</title>
+    <style>
+      input,select {
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>    
+
+    <form
+      id="app"
+      @submit="checkForm"
+      action="https://vuejs.org/"
+      method="post"
+    >
+
+      <p v-if="errors.length">
+        <b>Please correct the following error(s):</b>
+        <ul>
+          <li v-for="error in errors">{{ error }}</li>
+        </ul>
+      </p>
+
+      <p>
+        <label for="name">Name</label>
+        <input
+          id="name"
+          v-model="name"
+          type="text"
+          name="name"
+        >
+      </p>
+
+      <p>
+        <label for="age">Age</label>
+        <input
+          id="age"
+          v-model="age"
+          type="number"
+          name="age"
+          min="0">
+      </p>
+
+      <p>
+        <label for="movie">Favorite Movie</label>
+        <select
+          id="movie"
+          v-model="movie"
+          name="movie"
+        >
+          <option>Star Wars</option>
+          <option>Vanilla Sky</option>
+          <option>Atomic Blonde</option>
+        </select>
+      </p>
+
+      <p>
+        <input
+          type="submit"
+          value="Submit"
+        >
+      </p>
+
+    </form>
+
+
+
+    <div>This is my ew app vue.js :-)</div>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+      
+      const app = new Vue({
+        el:'#app',
+        data:{
+          errors:[],
+          name:null,
+          age:null,
+          movie:null
+        },
+        methods:{
+          checkForm:function(e) {
+            if(this.name && this.age) return true;
+            this.errors = [];
+            if(!this.name) this.errors.push("Name required.");
+            if(!this.age) this.errors.push("Age required.");
+            e.preventDefault();
+          }
+        }
+      });
+
+
+    </script>
+
+  </body>
+</html>

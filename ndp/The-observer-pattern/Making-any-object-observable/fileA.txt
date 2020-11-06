@@ -1,0 +1,2 @@
+This is my text file. Well, I want say something: I already love javascript. 
+That is because I am a Programmer. hello

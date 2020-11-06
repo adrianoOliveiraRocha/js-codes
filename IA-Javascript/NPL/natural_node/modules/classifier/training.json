@@ -1,0 +1,22 @@
+[
+  { 
+    "clientTalk": "pagar fatura segunda via", 
+    "response": "Ok. Entendi! Você gostaria de receber sua fatura agora por email?"
+  },
+  { 
+    "clientTalk": "ligação religar ligar", 
+    "response": "Ok. Entendi! Você gostaria de religar a água"
+  },
+  { 
+    "clientTalk": "jumento cachorro demorando demora", 
+    "response": "Ok. Entendi! Você está nervoso"
+  },
+  { 
+    "clientTalk": "devendo veaco vergonha", 
+    "response": "Não se preocupe. Nós entendemos :-)"
+  },
+  { 
+    "clientTalk": "teste", 
+    "response": "Isso é apenas um teste"
+  }
+]

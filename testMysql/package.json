@@ -1,0 +1,14 @@
+{
+  "name": "testasync",
+  "version": "1.0.0",
+  "description": "This is a test",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adriano Oliveira",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.16.0"
+  }
+}

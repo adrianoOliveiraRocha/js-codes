@@ -1,0 +1,9 @@
+using botpress
+
+1 - npm -g install botpress
+2 - botpress init
+3 - npm install // dependences
+4 - nodemon / npm start
+
+https://www.npmjs.com/package/node-nlp // 29 differents languages
+https://github.com/axa-group/nlp.js // perfect to make chatbot

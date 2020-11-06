@@ -1,0 +1,40 @@
+const axios = require('axios');
+const qs = require('qs');
+
+var url = "https://ws.sandbox.pagseguro.uol.com.br/v2/checkout/email=adriano.qwe32@yahoo.com.br&token=390CF2D3A2CB4C36BF19A30243AF536B";
+var data = {
+    "checkout": {
+        "items": {
+            "item": {
+                "id": 0001,
+                "description": "Assinatura no Sistema Combinado",
+                "amount": 9.99,
+                "quantity": 1,
+                "weight": 0
+            }
+        },
+        "redirectURL": "combinado.kinghost:21095/thanks",
+        "shipping": {
+            "addressRequired": false
+        },
+        "receiver": {
+            "email": "adriano.qwe32@yahoo.com.br"
+        }
+    }
+}
+
+var options = {
+    method: "POST",
+    hedears: { 'content-type': 'application/x-www-form-urlencoded' },
+    data: qs.stringify(data)
+}
+
+axios.post(url, options)
+    .then(function(response) {
+        console.log('REPONSE');
+        console.log(response);
+    })
+    .catch(function(err) {
+        console.log('ERROR');
+        console.error(err);
+    });

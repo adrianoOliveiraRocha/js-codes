@@ -1,0 +1,1 @@
+module.exports = attr => obj => obj[attr]

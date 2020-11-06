@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app" class="container">
+      <form action="/testnode">
+
+        <div class="col-sm-6">
+          <input v-model='options' type="text" class="form-control">
+        </div>
+        
+        <div class="form-check">
+          <label class="form-check-label">
+            <input v-model='options' type="checkbox" class="form-check-input" value="Option 1"
+            name="OptionsRadios" id="option1">Option 1
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input v-model='options' type="checkbox" class="form-check-input" value="Option 2"
+            name="OptionsRadios" id="option2">Option 2
+          </label>
+        </div>
+        <div class="form-check disabled">
+          <label class="form-check-label">
+            <input v-model='options' type="checkbox" class="form-check-input" value="Option 3"
+            name="OptionsRadios" id="option3">Option 3
+          </label>
+        </div> 
+        
+      </form> 
+      <hr>
+      <div class="container">
+        You selected {{options.join(', ')}}
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>  
+    <script>
+      let vm = new Vue({
+
+        el: '#app',
+        data: {
+          options: [],
+          message: ''
+        }
+
+      });
+    </script>
+  </body>
+</html>

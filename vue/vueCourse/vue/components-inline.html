@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Vue course</title>
+  </head>
+  <body>
+    <div id="app">
+      
+      <posts inline-template>
+        <h1 @click="display">HELLOsss</h1>
+      </posts>
+      
+    </div>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+      Vue.component('posts', {
+        data () {
+          return {
+            
+          }
+        },
+
+        methods: {
+          display () {
+            console.log('hello!');
+          }
+        },
+      });
+
+      let vm = new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello'          
+        }
+      });
+    </script>
+  </body>
+</html>

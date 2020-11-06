@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>I need follow the development of this</title>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="increaseFont">Increase</button>
+      <button @click="decreaseFont">Decrease</button>
+      <div :style="{color: 'red', fontSize: fontSize + 'px'}">{{message}}</div>
+      
+    </div>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+      new Vue({
+
+        el: '#app',
+        data: {          
+          message: 'i can speak in any language that I want',
+          fontSize: 12,
+        },
+
+        methods: {
+
+          increaseFont: function () {
+            console.log("Ok! That's work to me as well!");
+            this.fontSize++;
+            this.message = `In future, I want to make video lessons inEnglish
+            about programming`;
+          },
+
+          decreaseFont: function () {
+            console.log(`With this method I can decrease the font`);
+            this.fontSize--;
+            this.message = `With this method I can decrease the font`;
+          }
+
+        },
+
+      });
+    </script>
+  </body>
+</html>

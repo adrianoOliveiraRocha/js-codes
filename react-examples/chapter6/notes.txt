@@ -1,0 +1,2 @@
+https://subscription.packtpub.com/book/web_development/9781788992749/6/ch06lvl1sec68/defining-components
+Creating the RegionsInformationTable component

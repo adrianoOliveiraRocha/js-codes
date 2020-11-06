@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Learning Quill</title>
+
+    <!-- Main Quill library -->
+    <link href="./quilljs/css/quill.snow.css" rel="stylesheet">
+    <script src="./quilljs/js/quill.js"></script>
+
+  </head>
+  <body>
+    
+    <div id="editor"></div>
+    <button type="button" onclick="logHtmlContent()">Ok</button>
+    <div id="myText"></div>
+
+    <script type="text/javascript">
+      var toolbarOptions = [
+        ['bold', 'italic', 'underline', 'strike'],
+        ['blockquote', 'code-block'],
+        [{'header': 1}, {'header': 2}],
+        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+        [{ 'script': 'sub'}, { 'script': 'super' }],
+        [{ 'indent': '-1'}, { 'indent': '+1' }],
+        [{ 'direction': 'rtl' }],
+        [{ 'size': ['small', false, 'large', 'huge'] }],
+        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+        [{ 'color': [] }, { 'background': [] }],
+        [{ 'font': [] }],
+        [{ 'align': [] }],
+        ['clean']
+      ]
+
+      var quill = new Quill('#editor', {
+        modules: {
+          toolbar: toolbarOptions
+        },
+        theme: 'snow'
+      })
+
+      function logHtmlContent() {
+        var myText = document.getElementById('myText')
+        myText.innerHTML = quill.root.innerHTML
+        console.log(quill.root.innerHTML)
+      }
+
+    </script>
+
+  </body>
+</html>

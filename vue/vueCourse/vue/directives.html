@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Directives</title>
+  </head>
+  <body>
+
+    <div id="app">
+      <a :href="url">{{ url }}</a>  
+      <h1 @click="number++">{{number}}</h1>
+      <h1 @click="number--">Decreaing</h1>   
+      <form action="">
+        <button type="submit" @submit.prevent="number++">
+          Submit
+        </button>
+      </form> 
+    </div>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          number: 10,
+          url: 'https://edwindiaz.com',
+          message: 'I can to learn anything.. or almost it'       
+        }
+      });
+    </script>
+  </body>
+</html>

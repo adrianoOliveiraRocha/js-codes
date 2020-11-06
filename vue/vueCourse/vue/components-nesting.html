@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Vue course</title>
+  </head>
+  <body>
+
+    <div id="app">
+      
+      <posts></posts>
+      
+    </div>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+      Vue.component('posts', {
+
+        template: `
+          <div>
+            <ul>
+              <post v-for="post in posts" :key="post.id">{{post.title}}</post>              
+            </ul>
+          </div>
+        `,
+
+        data() {
+          return {
+            posts: [
+              {id: 1, title: 'Post 1'},
+              {id: 2, title: 'Post 2'},
+              {id: 3, title: 'Post 3'},
+              {id: 4, title: 'Post 4'},
+              {id: 5, title: 'Post 5'},
+            ]
+          }
+        },
+
+        methods: {
+          display () {
+            console.log('hello everyone!');
+          }
+        },
+
+      });
+
+      Vue.component('post', {
+        template: '<li><slot></slot></li>',
+      });
+
+      let vm = new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello'          
+        }
+      });
+
+    </script>
+  </body>
+</html>

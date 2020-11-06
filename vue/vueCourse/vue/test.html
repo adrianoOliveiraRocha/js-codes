@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>I need follow the development of this</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Adriano Oliveira {{ isActive == 'active' ? 'is active' : 'is not active' }}</h1>      
+    </div>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+      let vm = new Vue({
+        el: '#app',
+        data: {
+          isActive: 'no active'          
+        },
+        watch: {
+          isActive: function (newValue) {
+            console.log('Sending an email ' + newValue);
+          }
+        },
+      });
+    </script>
+  </body>
+</html>

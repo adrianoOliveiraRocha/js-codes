@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <%-include('./include/links.ejs')%>
+  </head>
+  <body>
+    <%-include('./include/nav.ejs')%>
+
+    <div class="container">
+      <%if(typeof message !== 'undefined' && message !== '') {%>
+        <%=message%>
+      <% } %>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "luxonstudy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adriano Oliveira",
+  "license": "ISC",
+  "dependencies": {
+    "luxon": "^1.17.2"
+  }
+}

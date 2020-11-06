@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Standalone Location</title>
+  </head>
+  <body>
+    <h2>Standalone Location</h2>
+    <h3 id="response"></h3>
+
+    <script>
+
+      function foo() {
+        var container = document.getElementById("response");
+        console.log(this.a);
+        container.innerHTML = this.a;
+      }
+
+      var a = 2;
+
+      foo();
+
+    </script>
+    
+  </body>
+</html>

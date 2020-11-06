@@ -1,0 +1,9 @@
+https://ethereal.email/
+
+* How to enter in my account
+  In the csv file you have the email and the password. You need that to enter 
+  in your account. In the Messages you cannot se the messages that you send. 
+  You can se that the messages was sended and to who.
+
+* How read the messages sendeds
+  Just click in subject

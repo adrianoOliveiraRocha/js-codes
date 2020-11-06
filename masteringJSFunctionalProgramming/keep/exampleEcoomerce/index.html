@@ -1,0 +1,31 @@
+<html>
+<link rel="shortcut icon" type="image/png" href="lib/jasmine-2.6.1/jasmine_favicon.png">
+<link rel="stylesheet" href="lib/jasmine-2.6.1/jasmine.css">
+
+<script src="lib/jasmine-2.6.1/jasmine.js"></script>
+<script src="lib/jasmine-2.6.1/jasmine-html.js"></script>
+<script src="lib/jasmine-2.6.1/boot.js"></script>
+
+<script src="src/once.js"></script>
+<script src="tests/once.test.1.js"></script>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+
+<body>
+    <button id="billButton" onclick="billTheUserOnce('tsome', 'tsales', 'tdata')">Bill me</button>
+    <script>
+        var billTheUser = (some, sales, data) => {
+            window.alert('Billing the client...' + some + sales + data);
+        }
+
+        var itIsDone = () => {
+            window.alert('I t is done :(. Stop');
+        };
+
+        var billTheUserOnce = once(billTheUser, itIsDone);
+    </script>
+</body>
+
+</html>

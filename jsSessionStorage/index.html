@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" 
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js">
+  </script>
+</head>
+<body onload="Core.verify();">
+
+  <div class="container">
+    <h2>Products</h2>
+                
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Product 1</td>
+          <td><button class="btn btn-primary" 
+            id="btn_1" onclick="Core.insertProduct('1')">
+            Additione to cart</button></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Product 2</td>
+          <td><button class="btn btn-primary" 
+            id="btn_2" onclick="Core.insertProduct('2')">
+            Additione to cart</button></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Product 3</td>
+          <td><button class="btn btn-primary" 
+            id="btn_3" onclick="Core.insertProduct('3')">
+            Additione to cart</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <a class="btn btn-primary" href="second-page.html">
+      Go to page 2</a>
+    <button class="btn btn-danger" onclick="Core.cleanSession();">
+      Clean Session</button>
+  </div>
+  
+  <script src="./js/programm.js"></script>
+
+</body>
+</html>
+

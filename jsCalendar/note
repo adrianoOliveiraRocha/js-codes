@@ -1,0 +1,7 @@
+ - Disable JavaScript Standard Style
+
+ // To translate to Portuguese:
+    Open the file node_modules/simple_calendar/source/jsCalendar
+    and overrid the monthe names to Portuguese :-). No, the translation that already
+    exists doesn't works
+

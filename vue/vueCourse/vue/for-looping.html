@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>I need follow the development of this</title>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="post in posts" :key="post.id">
+          {{ post.title }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          posts: [
+            {
+              id: 1,
+              title: 'Post 1',
+              body: 'Vuejs is the bether framework javascript',
+            },
+            {
+              id: 2,
+              title: 'Post 2',
+              body: 'That is the body of the post 2',
+            },
+            {
+              id: 3,
+              title: 'Post 3',
+              body: 'That is the body of the post 3',
+            },
+            {
+              id: 3,
+              title: 'Post 3',
+              body: 'That is the body of the post 3',
+            },
+            {
+              id: 4,
+              title: 'Post 4',
+              body: 'That is the body of the post 4',
+            },
+          ],         
+        }
+      });
+    </script>
+  </body>
+</html>
