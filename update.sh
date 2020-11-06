@@ -1,3 +1,3 @@
-got add .;
+git add .;
 git commit -m '#';
-git push;
+git push orign master;

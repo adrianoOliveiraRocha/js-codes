@@ -45,12 +45,14 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight || 0
   },
   item: {
-    backgroundColor: '#f9c2ff',
+    backgroundColor: '#048675',
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 10,
   },
   title: {
+    color: '#fff',
+    textAlign: 'center',
     fontSize: 32
   }
 });
