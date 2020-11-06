@@ -1,20 +1,56 @@
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, FlatList, StatusBar } from 'react-native';
 
-export default function App() {
+function generateItems() {
+  const DATA = [];
+  for (var i = 0; i <= 20; i++) {
+    DATA.push({
+      id: i,
+      title: `Item ${i}`
+    });
+  }
+  return DATA;
+}
+
+function Item({ title }) {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      
+    <View style={styles.item}>
+      <Text style={styles.title}>{title}</Text>
     </View>
+  );
+}
+
+export default function App() {
+
+  function renderItem({ item }) {
+    return (
+      <Item title={item.title} />
+    );
+  }
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={generateItems()}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+      />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: StatusBar.currentHeight || 0
   },
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 10,
+  },
+  title: {
+    fontSize: 32
+  }
 });
