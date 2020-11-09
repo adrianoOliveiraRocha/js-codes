@@ -10,6 +10,14 @@ import {
 
 function ModalTest() {
   const [modalVisyble, setModalVisyble] = useState(false);
+  return (
+    <View style={styles.centeredView}>
+      <Modal
+        animationType:>
+
+      </Modal>
+    </View>
+  );
 
 }
 
