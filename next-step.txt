@@ -1,1 +1,1 @@
-https://reactnative.dev/docs/image
+ReactNativeComponent / https://reactnative.dev/docs/modal
