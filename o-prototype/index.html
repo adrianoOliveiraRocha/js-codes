@@ -9,17 +9,18 @@
 
     <script>
 
-      function foo() {
-        var container = document.getElementById("response");
-        console.log(this.a);
-        container.innerHTML = this.a;
+      function identify() {
+        return this.name.toUpperCase();
       }
 
-      var a = 2;
+      function speak() {
+        var greeting = "Hello, I'm " + identify.call(this);
+        console.log(greeting);
+      }
 
-      foo();
+      speak();
 
     </script>
-    
+
   </body>
 </html>
