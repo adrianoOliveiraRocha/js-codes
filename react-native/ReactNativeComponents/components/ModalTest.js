@@ -1,35 +1,42 @@
 import React, { useState } from 'react';
 import {
-  Alert, Modal, StyleSheet, Text, TouchableHightLight, View
+  Alert, Modal, StyleSheet, Text, TouchableHighlight, View
 } from 'react-native';
 import Constants from 'expo-constants';
 
 function ModalTest() {
-  const [modalVisyble, setModalVisyble] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={styles.centeredView}>
       <Modal
         animationType="slide"
-        tranparent={true}
+        transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          Alert.alert('Janela Fechada')
+          Alert.alert('Modal has been closed.');
         }}>
-
         <View style={styles.centeredView}>
-          <Text style={styles.modalText}>Javascript Programmer</Text>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>Hello World!</Text>
+
+            <TouchableHighlight
+              style={{ ...styles.openButton, backgroundColor: '#2196F3' }}
+              onPress={() => {
+                setModalVisible(!modalVisible);
+              }}>
+              <Text style={styles.textStyle}>Hide Modal</Text>
+            </TouchableHighlight>
+          </View>
         </View>
-
-        <TouchableHightLight
-          style={{ ...styles.openButton, backgroundColor: '#2196F3'}}
-          onPress={() => {
-            setModalVisyble(!modalVisible);
-          }}
-        >
-          <Text style={styles.textStyle}></Text>
-        </TouchableHightLight>
-
       </Modal>
+
+      <TouchableHighlight
+        style={styles.openButton}
+        onPress={() => {
+          setModalVisible(true);
+        }}>
+        <Text style={styles.textStyle}>Show Modal</Text>
+      </TouchableHighlight>
     </View>
   );
 
@@ -39,8 +46,8 @@ const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'.
-    marginTop: Contants.statusBarHeight
+    alignItems: 'center',
+    marginTop: Constants.statusBarHeight
   },
   modalView: {
     margin: 20,
