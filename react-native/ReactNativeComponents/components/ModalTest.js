@@ -1,19 +1,33 @@
 import React, { useState } from 'react';
 import {
-  Alert,
-  Modal,
-  StyleSheet,
-  Text,
-  TouchableHightLight,
-  View
+  Alert, Modal, StyleSheet, Text, TouchableHightLight, View
 } from 'react-native';
+import Constants from 'expo-constants';
 
 function ModalTest() {
   const [modalVisyble, setModalVisyble] = useState(false);
   return (
     <View style={styles.centeredView}>
       <Modal
-        animationType:>
+        animationType="slide"
+        tranparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert('Janela Fechada')
+        }}>
+
+        <View style={styles.centeredView}>
+          <Text style={styles.modalText}>Javascript Programmer</Text>
+        </View>
+
+        <TouchableHightLight
+          style={{ ...styles.openButton, backgroundColor: '#2196F3'}}
+          onPress={() => {
+            setModalVisyble(!modalVisible);
+          }}
+        >
+          <Text style={styles.textStyle}></Text>
+        </TouchableHightLight>
 
       </Modal>
     </View>
@@ -24,8 +38,9 @@ function ModalTest() {
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-    justifyContent: 'center'
-    marginTop: 22
+    justifyContent: 'center',
+    alignItems: 'center'.
+    marginTop: Contants.statusBarHeight
   },
   modalView: {
     margin: 20,
@@ -48,7 +63,7 @@ const styles = StyleSheet.create({
     padding: 10,
     elevation: 2,
   },
-  textSize: {
+  textStyle: {
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center'
