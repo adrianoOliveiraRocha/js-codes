@@ -1,4 +1,8 @@
-1 - If you sometimes wonder about the difference between arguments and parameters, a mnemonic 
-    with some alliteration may help: Parameters are Potential, Arguments are Actual. 
-    Parameters are placeholders for potential values that will be passed, and arguments are 
+1 - If you sometimes wonder about the difference between arguments and parameters, a mnemonic
+    with some alliteration may help: Parameters are Potential, Arguments are Actual.
+    Parameters are placeholders for potential values that will be passed, and arguments are
     the actual values passed to the function.
+
+
+https://subscription.packtpub.com/book/web_development/9781787287440/6/ch06lvl1sec32/wrapping-functions
+// Timing

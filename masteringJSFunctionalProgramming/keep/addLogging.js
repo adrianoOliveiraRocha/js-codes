@@ -1,27 +1,33 @@
-const addLogging = (fn) => {
-    return (...args) => {
-        console.log(`entering ${fn.name}: args: ${args}`)
-        try {
-            const valueToReturn = fn(...args)
-            console.log(`existing ${fn.name}: ${valueToReturn}`)
-            return valueToReturn
-        } catch (error) {
-            throw error
-        }
-    }
+/*
+Example:
+
+function changeSign(a) {
+  return -a;
 }
 
-const addLogging3 = (fn, logger = console.log) => (...args) => {
-    logger(`entering: ${fn.name}: ${args}`)
+function subtract(a, b) {
+  b = changeSign(b);
+  return a + b;
+}
+
+subtract = addLoggin(subtract);
+changeSign = addLoggin(changeSign);
+
+subtract(10, 5);
+
+*/
+
+function addLoggin(fn, logger = console.log) {
+  return function(...args) {
+    logger(`entering ${fn.name}: ${args}`);
     try {
-        const valueToReturn = fn(...args)
-        logger(`exiting ${fn.name}: ${args}`)
-        return valueToReturn
-    } catch (error) {
-        logger(`exiting ${fn.name}: throw ${error}`)
-        throw error
+      const valueToReturn = fn(...args);
+      logger(`exiting ${fn.name}: ${valueToReturn}`);
+      return valueToReturn;
+    } catch (e) {
+      logger(`Error: ${e}`);
     }
+  }
 }
 
-module.exports.addLogging = addLogging
-module.exports.addLogging3 = addLogging3
+module.exports.addLoggin = addLoggin;
