@@ -1,28 +1,36 @@
 /*
-How to use this:
 
-let testFib = memoize(fib)
-addTiming(testFib)(45) // normal exit 14115 ms
-addTiming(testFib)(40) // normal exit 1268 ms
-addTiming(testFib)(35) // normal exit 114 ms
+Example 1:
+
+function mult(a, b) {
+  return a * b;
+}
+
+const result = addTiming(mult)(2, 2);
+console.log(result);
 
 */
 
-const myPut = (text, name, tStart, tEnd) =>
-    console.log(`${name} - ${text} ${tEnd - tStart} ms`)
-
-const myGet = () => Date.now()
-
-const addTiming = (fn, getTime = myGet, output = myPut) => (...args) => {
-    let tStart = getTime()
-    try {
-        const valueToReturn = fn(...args)
-        output("normal exit", fn.name, tStart, getTime())
-        return valueToReturn
-    } catch (thrownError) {
-        output("exception thrown", fn.name, tStart, getTime())
-        throw thrownError
-    }
+function myPut(text, name, tStart, tEnd) {
+  console.log(`${name} - ${text} - ${tEnd - tStart} ms`);
 }
 
-module.exports = addTiming
+function myGet() {
+  return new Date();
+}
+
+function addTiming(fn, getTime = myGet, output = myPut) {
+  return function(...args) {
+    let tStart = getTime();
+    try {
+      const valueToReturn = fn(...args);
+      output("normal exit", fn.name, tStart, getTime());
+      return valueToReturn;
+    } catch (e) {
+      output("exception throw", fn.name, tStart, getTime());
+      throw e;
+    }
+  }
+}
+
+module.exports = addTiming;
