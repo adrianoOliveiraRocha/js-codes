@@ -1,9 +1,9 @@
 function myPut(text, name, tStart, tEnd) {
-  console.log(`${name} - ${text} - ${tEnd - tStart} ms`);
+  console.log(`${name} - ${text} - ${tEnd} - ${tStart} = ${tEnd - tStart} ms`);
 }
 
 function myGet() {
-  return new Date();
+  return Date.now();
 }
 
 function addTiming(fn, getTime = myGet, output = myPut) {
@@ -28,5 +28,5 @@ function mult(a, arr) {
   return result
 }
 
-const result = addTiming(mult)(778, [7, 8, 9, 9, 5, 5, 5]);
+const result = addTiming(mult)(778, [7, 8, 9, 9, 5, 5, 5, 34, 556, 3332]);
 console.log(result);

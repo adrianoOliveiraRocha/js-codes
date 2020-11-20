@@ -2,11 +2,15 @@
 
 Example 1:
 
-function mult(a, b) {
-  return a * b;
+function mult(a, arr) {
+  let result = 0;
+  arr.forEach((item, i) => {
+    result += item * i;
+  });
+  return result
 }
 
-const result = addTiming(mult)(2, 2);
+const result = addTiming(mult)(778, [7, 8, 9, 9, 5, 5, 5, 34, 556, 3332]);
 console.log(result);
 
 */
