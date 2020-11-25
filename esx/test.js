@@ -4,7 +4,7 @@ const http = require('http');
 function getData() {
   return new Promise((resolve, reject) => {
 
-    http.get('http://headers.jsontest.com.ij', (res) => {
+    http.get('http://headers.jsontest.com', (res) => {
       var body = "";
 
       res.on("data", (part) => {
@@ -28,7 +28,7 @@ function getData() {
 async function doSothing() {
   const result = await getData();
   // do something
-  var response = `This is my host: ${result.Host}`;
+  var response = `This is my data: ${JSON.stringify(result)}`;
   return response;
 }
 
