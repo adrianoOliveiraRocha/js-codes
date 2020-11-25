@@ -1,12 +1,22 @@
-function fib(n) {
-  if(n == 0) {
-    return 0
-  } else if(n == 1) {
-    return 1;
-  } else {
-    console.log(`${n - 2} + ${n - 1} = ${(n -2) + (n - 1)}`);
-    return fib(n - 1) + fib(n - 2);
+const addTiming = require('./keep/addTiming');
+const memoize = require('./keep/memoize.js');
+const fib = require('./keep/fib');
+
+function memoize2(fn) {
+  let cache = {};
+  return function(x) {
+    if (fn.length === 1) {
+      return (x in cache ? cache[x] : (cache[x] = fn(x)));
+    } else {
+      return fn;
+    }
   }
 }
 
-console.log(fib(5));
+
+const fibMemoized = memoize2(fib);
+console.log('Using fib');
+addTiming(fib)(44);
+console.log("\n");
+console.log('Using memoized fib');
+addTiming(fibMemoized)(44);
