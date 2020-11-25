@@ -1,11 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Alert, Modal, StyleSheet, Text, TouchableHighlight, View
 } from 'react-native';
 import Constants from 'expo-constants';
 
-function ModalTest() {
-  const [modalVisible, setModalVisible] = useState(false);
+function ModalTest(props) {
+  const [modalVisible, setModalVisible] = useState(true);
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    if(props.codeType == 256) {
+      setMessage("URL: " + props.codeData);
+    } else {
+      setMessage("Esse cógigo não é uma url: " + props.codeData);
+    }
+  });
+
+  function readAgain() {
+    props.setScanned(false);
+  }
+
   return (
     <View style={styles.centeredView}>
       <Modal
@@ -17,7 +31,10 @@ function ModalTest() {
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello World!</Text>
+
+            <Text style={styles.modalText}>
+            {message}
+            </Text>
 
             <TouchableHighlight
               style={{ ...styles.openButton, backgroundColor: '#2196F3' }}
@@ -26,6 +43,19 @@ function ModalTest() {
               }}>
               <Text style={styles.textStyle}>Hide Modal</Text>
             </TouchableHighlight>
+
+            <TouchableHighlight
+              style={{ ...styles.openButton, backgroundColor: '#2196F3' }}
+              onPress={readAgain}>
+              <Text style={styles.textStyle}>Lêr Outro</Text>
+            </TouchableHighlight>
+
+            <TouchableHighlight
+              style={{ ...styles.openButton, backgroundColor: '#2196F3' }}
+              onPress={() => props.navigation.navigate("Home")} >
+              <Text style={styles.textStyle}>Home</Text>
+            </TouchableHighlight>
+
           </View>
         </View>
       </Modal>
@@ -37,6 +67,7 @@ function ModalTest() {
         }}>
         <Text style={styles.textStyle}>Show Modal</Text>
       </TouchableHighlight>
+
     </View>
   );
 
@@ -45,8 +76,8 @@ function ModalTest() {
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
+    justifyContent: 'space-around',
     marginTop: Constants.statusBarHeight
   },
   modalView: {
@@ -62,13 +93,16 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    elevation: 5
+    elevation: 5,
+
   },
   openButton: {
     backgroundColor: '#f194ff',
-    borderRadius: 20,
+    borderRadius: 5,
     padding: 10,
     elevation: 2,
+    width: 200,
+    margin: 3
   },
   textStyle: {
     color: 'white',
