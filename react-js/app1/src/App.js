@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
-
+import './App.css';
+import Component1 from './functional/component1';
+import Container1 from './containers/container1'
 
 class App extends Component {
 
   render() {
-    const name = "adriano";
     return (
       <div className="App">
-        I am {name}
+          <Container1 nickname="Adr"/>
+          <Component1
+            name="Adriano" 
+            age={47}
+          />
+        
       </div>
     );
   }
