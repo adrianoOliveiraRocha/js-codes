@@ -1,8 +1,8 @@
-let map = new Map(),
-  val2 = 'val2',
-  val3 = {
-    key: 'value'
-  };
+let map = new Map();
+val2 = 'val2',
+val3 = {
+  key: 'value'
+};
 map.set(0, 'val1');
 map.set(1, val2);
 map.set({ key: 2 }, val3);
