@@ -1,0 +1,10 @@
+/etc/mongod.conf
+
+permission:
+chown -R mongodb:mongodb /var/lib/mongodb
+chown mongodb:mongodb /tmp/mongodb-27017.sock
+
+jest/
+npm install --save-dev jest
+https://jestjs.io/docs/en/getting-started
+npm run test file-name.test.js
