@@ -17,8 +17,8 @@ function getConnect() {
   });
 }
 
-beforeAll(() => console.log('Thi init of all tests'));
-afterAll(() => console.log('All is finished'));
+// beforeAll(() => console.log('Thi init of all tests'));
+// afterAll(() => console.log('All is finished'));
 
 test('Testing connect', () => {
   return getConnect()
