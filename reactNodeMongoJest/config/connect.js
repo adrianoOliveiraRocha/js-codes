@@ -1,6 +1,6 @@
 const MongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectID;
-const url = 'mongo://localhost:27017';
+const url = 'mongodb://localhost:27017';
 const dbName = 'testnodemongo';
 
 const options = {

@@ -8,3 +8,5 @@ jest/
 npm install --save-dev jest
 https://jestjs.io/docs/en/getting-started
 npm run test file-name.test.js
+
+sudo service mongod start
