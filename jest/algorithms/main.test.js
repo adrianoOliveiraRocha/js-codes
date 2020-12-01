@@ -1,11 +1,14 @@
-const timeConversion = require('./main');
+const gradingStudents = require('./main');
 
-test('testing timeConversion', () => {
-  expect(timeConversion('12:00:00AM')).toBe('00:00:00');
-  expect(timeConversion('07:21:21AM')).toBe('07:21:21');
-  expect(timeConversion('12:00:00PM')).toBe('12:00:00');  
-  expect(timeConversion('07:21:21PM')).toBe('19:21:21');
-
+test('gradingStudents test', () => {
+  expect(gradingStudents([73, 67, 38, 33]))
+  	.toStrictEqual([75, 67, 40, 33]);
 });
 
 // npm run test main.test.js
+
+/*
+to arrays:
+expect(gradingStudents([73, 67, 38, 33]))
+  	.toStrictEqual([75, 67, 40, 33]);
+*/
