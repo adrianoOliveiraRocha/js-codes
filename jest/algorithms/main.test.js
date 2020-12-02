@@ -1,6 +1,6 @@
-const gradingStudents = require('./main');
+const countApplesAndOranges = require('./main');
 
-test('gradingStudents test', () => {
+test('countApplesAndOranges test', () => {
   expect(gradingStudents([73, 67, 38, 33]))
   	.toStrictEqual([75, 67, 40, 33]);
 });

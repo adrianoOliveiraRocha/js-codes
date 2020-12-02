@@ -1,8 +1,7 @@
 /etc/mongod.conf
 
 permission:
-chown -R mongodb:mongodb /var/lib/mongodb
-chown mongodb:mongodb /tmp/mongodb-27017.sock
+sudo chmod -R 777 mongodb:mongodb /var/lib/mongodb
 
 jest/
 npm install --save-dev jest
