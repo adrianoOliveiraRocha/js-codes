@@ -3,7 +3,7 @@ const http = require('http');
 
 function getData() {
   return new Promise((resolve, reject) => {
-    http.get('http://headers.jsontest.com.fg/', (res) => {
+    http.get('http://headers.jsontest.com/', (res) => {
       var body = "";
 
       res.on("data", (part) => {
