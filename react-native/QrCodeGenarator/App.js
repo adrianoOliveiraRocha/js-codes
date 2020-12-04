@@ -1,31 +1,30 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button, Share } from 'react-native';
 import SvgQRCode from 'react-native-qrcode-svg';
 
-// https://docs.expo.io/tutorial/sharing/
+// https://github.com/dumbest/react-native-qrcode-svg-expo#saving-generated-code-to-gallery
 
 export default function App() {
-
-  const [shareCode, setShareCode] = React.useState(null);
-
-  var img;
+  const [input, setInput] = React.useState('');
+  const [codeText, setCodeText] = React.useState("https://example.com");
   function Simple() {
-    // setShareCode(img);
-    img = <SvgQRCode value="https://w3software.net.br"/>;
-    return img;
-  }
+    return <SvgQRCode value={codeText}/>;
+  }  
 
-  function share() {
-    setShareCode(img);
-    console.log(shareCode);
-    alert(img);
+  function createQRCode() {
+    setCodeText(input);    
   }
 
   return (
     <View style={styles.container}>
       <Simple />
-      <Button title="Share" onPress={share}/>
+      <TextInput 
+        value={input}
+        style={{ height: 40, borderColor: 'gray', borderWidth: 1, width: 200 }}
+        onChangeText={text => setInput(text)}
+      />
+      <Button title="Create" onPress={createQRCode}/>
       <StatusBar style="auto" />
     </View>
   );

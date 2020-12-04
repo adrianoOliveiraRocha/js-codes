@@ -1,24 +1,17 @@
 'use strict';
 
-function countApplesAndOranges(s, t, a, b, apples, oranges){
+function kangaroo(x1, v1, x2, v2){
+	var resp = 'NO';
 	
-	var howMatchApple = 0;
-	var howMatchOranges = 0;
-	
-	apples.forEach(apple => {
-		var p = a + apple;
-		if(p >= s && p <= t) howMatchApple++;
-	});
-	
-	oranges.forEach(orange => {
-		var p = b + orange;
-		if(p >= s && p <= t) howMatchOranges++;
-	});	
-	
-	console.log(howMatchApple);
-	console.log(howMatchOranges);
+	for(let i = 0; i <= 10000; i++) {
+		x1 += v1;
+		x2 += v2;
+		if(x1 == x2) resp = 'YES';
+	}
+
+	console.log(resp);
 	
 }
 
-countApplesAndOranges(7, 11, 5, 15, [-2, 2, 1], [5, -6]);
+kangaroo(0,2,5,3);
 
