@@ -8,12 +8,20 @@ import SvgQRCode from 'react-native-qrcode-svg';
 export default function App() {
   const [input, setInput] = React.useState('');
   const [codeText, setCodeText] = React.useState("https://example.com");
+  
   function Simple() {
     return <SvgQRCode value={codeText}/>;
   }  
 
   function createQRCode() {
-    setCodeText(input);    
+    if(input != '') setCodeText(input);
+    else alert('Empty imput');    
+  }
+
+  function saveQRCode() {
+    if(codeText) {
+      alert(codeText);
+    } else alert("Do create a qrcode please");
   }
 
   return (
@@ -25,6 +33,7 @@ export default function App() {
         onChangeText={text => setInput(text)}
       />
       <Button title="Create" onPress={createQRCode}/>
+      <Button title="Save" onPress={saveQRCode}/>
       <StatusBar style="auto" />
     </View>
   );
