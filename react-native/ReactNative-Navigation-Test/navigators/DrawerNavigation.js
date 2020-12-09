@@ -39,6 +39,7 @@ function MyDrawer() {
     <Drawer.Navigator backBehavior="history" drawerContent={props => <CustomdrawerContent {...props}/>}>
       <Drawer.Screen name="Home" component={Home} />
       <Drawer.Screen name="Contact" component={Contact} />
+      
     </Drawer.Navigator>
   );
 }

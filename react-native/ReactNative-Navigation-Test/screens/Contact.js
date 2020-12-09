@@ -5,7 +5,7 @@ import Header from './../Header/Header';
 export default function Contact({ navigation }) {
   return (
     <View style={styles.container}>
-      <Header title="Home" navigation={navigation} />
+      <Header title="Contact" navigation={navigation} />
       <View style={styles.content}>
         <Text style={styles.text}>Contact is here</Text>
         <Button title="Go back" onPress={() => navigation.goBack() }/>
