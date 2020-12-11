@@ -69,22 +69,20 @@ function howManyWays(n) {
 	sequences.forEach(sequence => {
 		let lastFactor = sequence[sequence.length-1];
 		
-		let way=`${lastFactor}`;
+		let way=[lastFactor];
 		let soma=lastFactor;
 		while(soma<10) {
-			way += ` + ${1}`;
+			way.push(1);
 			soma+=1;
-			ways.push(way);
 		}
-		ways.push(way);
-		console.log(way)
 
+		ways.push(way);
+		
 	});
 
-	// console.log(ways);
+	console.log(ways);
 
-	
-
+	// go on...
 
 }
 
