@@ -55,8 +55,8 @@ and so on...
 */
 
 function howManyWays(n) {
-
-	let sequences = [];
+	
+	let sequences = []; 
 	for(let i=1; i<n; i++) {
 		let temp=[];
 		for(let j=i; j>0; j--) {
@@ -64,26 +64,20 @@ function howManyWays(n) {
 		}
 		sequences.push(temp.sort());
 	}
-
+	// console.log(sequences);
 	let ways=[];
 	sequences.forEach(sequence => {
 		let lastFactor = sequence[sequence.length-1];
-		
-		let way=[lastFactor];
-		let soma=lastFactor;
-		while(soma<10) {
-			way.push(1);
-			soma+=1;
+		for(let i = 1; i <= sequence.length; i++) {
+			let way = new Array(i);
+			way.fill(lastFactor, 0, i);
+			ways.push(way);
 		}
 
-		ways.push(way);
-		
 	});
-
+	
 	console.log(ways);
-
-	// go on...
 
 }
 
-howManyWays(10);
+howManyWays(5);
