@@ -54,6 +54,8 @@ and so on...
 
 */
 
+
+
 function howManyWays(n) {
 	
 	let sequences = []; 
