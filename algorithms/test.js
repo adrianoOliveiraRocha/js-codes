@@ -23,10 +23,10 @@ function waysAcordingThefactor(factor, n) {
 
 	}
 
-	console.log(ways)
+	return ways;
 
 }
 console.log("factor = 2; n = 10")
-test(2, 10);
+console.log(waysAcordingThefactor(2, 10));
 console.log("factor = 3; n = 12")
-test(3, 12);
+console.log(waysAcordingThefactor(3, 12));

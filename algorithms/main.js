@@ -53,33 +53,50 @@ n = 10
 and so on...
 
 */
+function waysAcordingThefactor(factor, n) {
 
-
-
-function howManyWays(n) {
+	let ways=[]
 	
-	let sequences = []; 
 	for(let i=1; i<n; i++) {
-		let temp=[];
-		for(let j=i; j>0; j--) {
-			temp.push(j)
-		}
-		sequences.push(temp.sort());
-	}
-	// console.log(sequences);
-	let ways=[];
-	sequences.forEach(sequence => {
-		let lastFactor = sequence[sequence.length-1];
-		for(let i = 1; i <= sequence.length; i++) {
-			let way = new Array(i);
-			way.fill(lastFactor, 0, i);
-			ways.push(way);
-		}
+		let way = new Array(i);
+		way.fill(factor, 0, i)				
+		// ways.push(way);
+		let sum = way.reduce((accum, current) => accum + current);
+		let temp=sum;
+		
+		if(sum <= n) {
+			while(sum < n) {
+				sum+=1;
+				way.push(1);
+			}
 
-	});
-	
-	console.log(ways);
+		}
+		
+		if(sum == n) ways.push(way)
+
+	}
+
+	return ways;
 
 }
 
-howManyWays(5);
+console.log(waysAcordingThefactor(3, 12))
+
+/*
+[
+  [
+    3, 1, 1, 1, 1,
+    1, 1, 1, 1, 1
+  ],
+  [
+    3, 3, 1, 1,
+    1, 1, 1, 1
+  ],
+  [ 3, 3, 3, 1, 1, 1 ],
+  [ 3, 3, 3, 3 ]
+]
+When you have 3 in all positions, you need begin to use 2: 
+3 2 1 1 1 1 1 1 1 
+*/
+
+
