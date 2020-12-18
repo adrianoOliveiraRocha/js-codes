@@ -9,8 +9,7 @@ function waysAcordingThefactor(factor, n) {
 		way.fill(factor, 0, i)				
 		// ways.push(way);
 		let sum = way.reduce((accum, current) => accum + current);
-		let temp=sum;
-		
+				
 		if(sum <= n) {
 			while(sum < n) {
 				sum+=1;
