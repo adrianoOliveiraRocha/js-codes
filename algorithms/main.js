@@ -22,7 +22,9 @@ function waysAcordingThefactor(factor, n, res={}) {
 				}
 			}
 			
-			if(sum == n) ways.push(way);		
+			if(sum == n) {
+				ways.push(way);
+			}		
 			else if(sum > n) break;
 
 		}
@@ -40,21 +42,28 @@ function waysAcordingThefactor(factor, n, res={}) {
 
 function howManyWays(n) {
 	const res = {};
-
+	
 	for(let i = n; i >= 1; i--) {
-		console.log(i)
 		waysAcordingThefactor(i, n, res);
 	}
 
-	console.log(res);
+	Object.keys(res).forEach((f) => {
+		console.log(f);
+		res[f].forEach(el => {
+			console.log(el)
+		})
+	})
+
+	// console.log(res);
 
 }
 
 
-howManyWays(6);
+howManyWays(7);
 
-
-
+// let res={}
+// waysAcordingThefactor(2, 3, res={})
+// console.log(res);
 
 
 
