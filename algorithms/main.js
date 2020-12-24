@@ -1,5 +1,26 @@
 'use strict';
 
+function getMore(...ar) {
+	let arr = ar[0];
+	let constantValues = [];
+	let next = 0;
+	while(arr[next] > 1) {
+		constantValues.push(arr[next]);
+		next++;
+	};
+	// console.log(constantValues);
+	let newArray = arr.filter(item => {
+		if(item in constantValues) return item;
+	});
+	console.log(constantValues);
+	console.log(newArray); // waysAcordingThefactor(2, newArray.length, res={})
+}
+
+let arr = [ 3, 3, 1, 1, 1, 1 ]
+getMore(arr)
+
+
+/*
 function waysAcordingThefactor(factor, n, res={}) {
 	
 	let ways=[]
@@ -48,9 +69,14 @@ function howManyWays(n) {
 	}
 
 	Object.keys(res).forEach((f) => {
-		console.log(f);
 		res[f].forEach(el => {
-			console.log(el)
+			if(f > 2 && el.slice(1, el.length).length > 1) {
+				console.log('verify ')
+				console.log(el)
+			} else {
+				console.log('not verify ')
+				console.log(el)
+			}
 		})
 	})
 
@@ -59,11 +85,9 @@ function howManyWays(n) {
 }
 
 
-howManyWays(7);
-
-// let res={}
-// waysAcordingThefactor(2, 3, res={})
-// console.log(res);
+// howManyWays(7);
 
 
+
+*/
 
