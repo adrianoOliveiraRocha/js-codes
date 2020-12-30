@@ -1,93 +1,70 @@
 'use strict';
 
-function getMore(...ar) {
-	let arr = ar[0];
-	let constantValues = [];
-	let next = 0;
-	while(arr[next] > 1) {
-		constantValues.push(arr[next]);
-		next++;
-	};
-	// console.log(constantValues);
-	let newArray = arr.filter(item => {
-		if(item in constantValues) return item;
-	});
-	console.log(constantValues);
-	console.log(newArray); // waysAcordingThefactor(2, newArray.length, res={})
-}
-
-let arr = [ 3, 3, 1, 1, 1, 1 ]
-getMore(arr)
-
-
-/*
-function waysAcordingThefactor(factor, n, res={}) {
+Array.prototype.equals = function(arr) {
 	
-	let ways=[]
-	if(factor === 1) {
-		let way = new Array(n);
-		way.fill(1, 0, (n + 1));
-		ways.push(way);
-	} else {
-
-		for(let i=1; i<n; i++) {
-			let way = new Array(i);
-			way.fill(factor, 0, i);				
-			
-			let sum = way.reduce((accum, current) => accum + current);
-					
-			if(sum <= n) {
-				while(sum < n) {
-					sum+=1;
-					way.push(1);
-				}
-			}
-			
-			if(sum == n) {
-				ways.push(way);
-			}		
-			else if(sum > n) break;
-
+	if(this.length === arr.length) {
+		for(let i = 0; i < this.length; i++) {
+			if(this[i] != arr[i]) {
+				return false;
+			}			
 		}
-	}
-		
-	res[factor] = ways;
-	
-	let newn = n - factor;
-	let newfactor = factor - 1;
-	if(newn > 1 && newfactor > 1 ) {
-		waysAcordingThefactor(newfactor, newn);
+		return true;
+	} else {
+		return false;
 	}
 
 }
 
-function howManyWays(n) {
-	const res = {};
-	
-	for(let i = n; i >= 1; i--) {
-		waysAcordingThefactor(i, n, res);
+function howManyWays(size, n, factor) {
+	let arr = new Array(size);
+	arr.fill(1);
+	let x = 0;
+	for(let i in arr) {
+		x += arr.reverse().pop();
+		if(x == factor) {
+			arr.push(factor);
+			return arr.reverse();
+		};
 	}
-
-	Object.keys(res).forEach((f) => {
-		res[f].forEach(el => {
-			if(f > 2 && el.slice(1, el.length).length > 1) {
-				console.log('verify ')
-				console.log(el)
-			} else {
-				console.log('not verify ')
-				console.log(el)
-			}
-		})
-	})
-
-	// console.log(res);
-
 }
 
+function getSum(arr) {
+	/* give the result of elements array sum */
+	let sum = arr.reduce((acum, curr) => {
+		return acum + curr;
+	});	
+	return sum;
+}
 
-// howManyWays(7);
+function complete(arr, n, factor) {	
+	/* complete whit factor until the sum be equals n */
+	let sum = getSum(arr);
+	while(getSum(arr) < n) {
+		arr.push(factor);
+	}
+}
+
+function main(n, factor) {
+	let ways = [];
+	let count = 0;
+	let size = n - (0 * factor);	
+	while(size >= factor) {
+		let res = howManyWays(size, n, factor);
+		complete(res, n, factor);
+		ways.push(res.sort().reverse());
+		count++;
+		size = n - (count * factor);
+	}
+
+	return ways;
+	
+}
+
+console.log(main(6, 2)); 
 
 
 
-*/
+
+
+
 
