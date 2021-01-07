@@ -24,16 +24,19 @@ function getSum(arr) {
 }
 
 function complete(arr, n, factor) {	
-	/* complete whit factor until the sum be equals n */
-	let sum = getSum(arr);
-	while(getSum(arr) < n) {
-		arr.push(factor);
+	/* complete whit factor until the sum to be equals n */
+	if(typeof arr != "undefined") {
+		let sum = getSum(arr);
+	
+		while(getSum(arr) < n) {
+			arr.push(factor);
+		}
 	}
 }
 
 function howManyWays(size, n, factor) {
 	let arr = new Array(size);
-	arr.fill(1);
+	arr.fill(1); 
 	let x = 0;
 	for(let i in arr) {
 		x += arr.reverse().pop();
@@ -48,14 +51,11 @@ function main(n, factor) {
 	let ways = [];
 	let count = 0;
 	let size = n - (count * factor);	
+
 	while(size >= factor) {
-		/*
-		if res has the algarism 1 more then one time, you need call 
-		howManyWays like this: n = n - factor; newFactor = 2;
-		*/
 		let res = howManyWays(size, n, factor);
 		complete(res, n, factor);
-		ways.push(res.sort().reverse());
+		if(typeof res != "undefined") ways.push(res.sort().reverse());
 		count++;
 		size = n - (count * factor);
 	}
@@ -67,14 +67,43 @@ function main(n, factor) {
 function start(n) {
 	let factor = 2;
 	let ways = [];
-	while(factor < n) {
-		ways.push(main(n, factor));
-		factor++;
+
+	if(n > 2) {
+		while(factor < n) {
+			let w = main(n, factor);
+			if (w.length > 0) ways.push(w);
+			factor++;
+		}
+	}	else if(n === 2) {
+		ways.push([2]);
 	}
+	
 	return ways;
+
 }
 
-console.log(start(5));
-// console.log(main(5, 2));
-// console.log(main(5, 3));
-// console.log(main(5, 4));
+// console.log(start(2))
+
+function test(n) {
+	let res = start(n);
+
+	res.forEach(ways => {
+		ways.forEach(way => {
+			let keep = way.filter(e => e != 1);
+			let ones = way.filter(e => e == 1);
+			console.log(keep, ones);
+			console.log(start(ones.length)) 	
+			console.log("\n");		
+		})
+	})
+
+	console.log("\n");
+	return res;
+	/*
+	When you have more the algarism 1 more then one time and the factor 
+	is grather then two, you need look for more ways
+	*/
+}
+
+test(7)
+

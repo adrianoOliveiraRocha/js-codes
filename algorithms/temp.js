@@ -1,31 +1,43 @@
 'use strict';
 
-function waysAcordingThefactor(factor, n) {
+function elementsSum(arr) {
+	return arr.reduce((acum, curr) => acum + curr);
+}
 
-	let ways=[]
-	
-	for(let i=1; i<n; i++) {
-		let way = new Array(i);
-		way.fill(factor, 0, i)				
-		// ways.push(way);
-		let sum = way.reduce((accum, current) => accum + current);
-				
-		if(sum <= n) {
-			while(sum < n) {
-				sum+=1;
-				way.push(1);
-			}
+function complete(arr) {
+	let sum = elementsSum(arr);
+	while(sum < n) {
+		arr.push(1);
+		let sum = elementsSum(arr);
+	} 
+	return arr;
+}
 
+function main(n) {
+	let ways = [];
+
+	for(let i = 1; i <= n; i++) {
+		let way = [];
+		let dividendo = parseInt(n / i);
+		let remain = n % i;	
+
+		if(i + remain == 5) {
+			way.push(i); way.push(remain);
+			ways.push(way);
+		} else if(i + remain < 5) {
+			ways.push(complete([i, remain], n));
 		}
-		
-		if(sum == n) ways.push(way)
 
+		if(i + dividendo == 5) {
+			way.push(i); way.push(dividendo);
+			ways.push(way);
+		} else if(i + dividendo < 5) {
+			ways.push(complete([i, dividendo], n));
+		}
 	}
 
-	return ways;
+	console.log(ways);
 
 }
-console.log("factor = 2; n = 10")
-console.log(waysAcordingThefactor(2, 10));
-console.log("factor = 3; n = 12")
-console.log(waysAcordingThefactor(3, 12));
+
+main(5);
