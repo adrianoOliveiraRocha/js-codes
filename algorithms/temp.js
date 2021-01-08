@@ -1,16 +1,24 @@
 'use strict';
 
 function elementsSum(arr) {
-	return arr.reduce((acum, curr) => acum + curr);
+	let mySum = arr.reduce((acum, curr) => acum + curr);
+	return mySum
 }
 
-function complete(arr) {
+function complete(arr, n) {
+	console.log(`arr: ${arr}; n: ${n}`)
+
 	let sum = elementsSum(arr);
-	while(sum < n) {
-		arr.push(1);
-		let sum = elementsSum(arr);
-	} 
-	return arr;
+	console.log(`sum: ${sum}`)
+	
+	arr.push(1)
+
+	console.log(`arr: ${arr}, n: ${n}`)
+
+	sum = elementsSum(arr);
+	console.log(`sum: ${sum}`)
+	
+	// console.log(arr);
 }
 
 function main(n) {
@@ -18,21 +26,28 @@ function main(n) {
 
 	for(let i = 1; i <= n; i++) {
 		let way = [];
-		let dividendo = parseInt(n / i);
+		let result = parseInt(n / i);
 		let remain = n % i;	
 
 		if(i + remain == 5) {
-			way.push(i); way.push(remain);
+			way.push(i); 
+			if (remain !== 0) way.push(remain);
 			ways.push(way);
 		} else if(i + remain < 5) {
-			ways.push(complete([i, remain], n));
+			// console.log(i, remain)
+			let arr = []; arr.push(i);
+			if(remain !== 0) arr.push(remain);
+			complete(arr, n)
 		}
 
-		if(i + dividendo == 5) {
-			way.push(i); way.push(dividendo);
-			ways.push(way);
-		} else if(i + dividendo < 5) {
-			ways.push(complete([i, dividendo], n));
+		if(i + result == 5) {
+			if(result !== remain) {
+				way.push(i); way.push(result);
+				ways.push(way);
+			}
+		} else if(i + result < 5) {
+			// console.log(i, result)
+			complete([i, result], n)
 		}
 	}
 
