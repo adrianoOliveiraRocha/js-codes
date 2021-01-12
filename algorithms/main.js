@@ -69,11 +69,35 @@ function main(n) {
 		}
 	}
 	// console.log(toFix);
-	console.log("\n")
+	// console.log("\n")
 	return ways;
 
 }
 
+function init(n) {
+	let ways = [];
+	let fromN = main(n);
+	ways.push(fromN);
+
+	fromN.forEach(fN => {
+		console.log("\n")
+		console.log(`fN: ${fN}`); // [ 1, 4 ]
+		
+		main(fN[0]).forEach(a => { 
+			let arr = [];
+			main(fN[1]).forEach(b => {
+				arr.push(a, b);
+			})
+			console.log(arr);
+		})
+
+	})
+
+}
+
+init(5);
+
+/*
 let ways = []
 ways.push(main(5)); // [ [ 1, 4 ], {[ 3, 2 ]}, [ 4, 1 ], [ 5 ] ]
 
@@ -89,4 +113,4 @@ comesFrom3.forEach(cf3 => {
 });
 
 console.log(ways)
-
+*/
