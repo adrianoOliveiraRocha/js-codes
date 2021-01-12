@@ -84,7 +84,7 @@ comesFrom3.forEach(cf3 => {
 		let arr = []
 		arr.push(cf3)
 		arr.push(cf2)
-		ways.push(arr)
+		ways.push(arr.flat())
 	})
 });
 
