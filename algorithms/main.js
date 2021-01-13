@@ -15,23 +15,6 @@ Array.prototype.equals = function(arr) {
 
 }
 
-function elementsSum(arr) {
-	let mySum = arr.reduce((acum, curr) => acum + curr);
-	return mySum;
-}
-
-function complete(arr, n) {
-	console.log(`${arr}`);
-	let sum = elementsSum(arr);
-	while(sum < n) {
-		arr.push(1);
-		sum = elementsSum(arr);
-	}	
-	console.log(arr);
-	return arr;
-
-}
-
 function main(n) {
 
 	let ways = [];
@@ -68,49 +51,37 @@ function main(n) {
 			
 		}
 	}
-	// console.log(toFix);
-	// console.log("\n")
+
 	return ways;
 
 }
 
 function init(n) {
+	const response = [];
 	let ways = [];
 	let fromN = main(n);
 	ways.push(fromN);
 
 	fromN.forEach(fN => {
-		console.log("\n")
-		console.log(`fN: ${fN}`); // [ 1, 4 ]
-		
 		main(fN[0]).forEach(a => { 
 			let arr = [];
 			main(fN[1]).forEach(b => {
-				arr.push(a, b);
+				arr.push([a, b]);
 			})
-			console.log(arr);
+			ways.push(arr);
 		})
 
 	})
 
+	ways.forEach(el => {
+		el.forEach(way => {
+			response.push(way.flat())
+		})
+	});
+
+	return response;
+
 }
 
-init(5);
+console.log(init(6).length);
 
-/*
-let ways = []
-ways.push(main(5)); // [ [ 1, 4 ], {[ 3, 2 ]}, [ 4, 1 ], [ 5 ] ]
-
-let comesFrom3 = main(3); 
-let comesFrom2 = main(2);
-comesFrom3.forEach(cf3 => {
-	comesFrom2.forEach(cf2 => {
-		let arr = []
-		arr.push(cf3)
-		arr.push(cf2)
-		ways.push(arr.flat())
-	})
-});
-
-console.log(ways)
-*/
