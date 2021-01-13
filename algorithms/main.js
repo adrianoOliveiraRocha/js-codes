@@ -76,10 +76,33 @@ function init(n) {
 	return response;
 
 }
+
 const res = [];
 init(5).forEach(el => {
-	console.log(el)
-	res.push(el)
+	/*
+	el =>
+	[ 1, 4 ]
+	[ 3, 2 ]
+	[ 4, 1 ]
+	[ 5 ]
+	[ 1, 1, 3 ]
+	[ 1, 2, 2 ]
+	[ 1, 3, 1 ]
+	[ 1, 4 ]
+	[ 1, 2, 1, 1 ]
+	[ 1, 2, 2 ]
+	[ 2, 1, 1, 1 ]
+	[ 2, 1, 2 ]
+	[ 3, 1, 1 ]
+	[ 3, 2 ]
+	[ 1, 3, 1 ]
+	[ 2, 2, 1 ]
+	[ 3, 1, 1 ]
+	[ 4, 1 ]
+	*/
+	res.forEach(r => {
+		// if el was different of all elements from res, push it in the res
+	})
 })
 
 console.log(res);
