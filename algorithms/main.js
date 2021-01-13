@@ -18,7 +18,6 @@ Array.prototype.equals = function(arr) {
 function main(n) {
 
 	let ways = [];
-	let toFix = [];
 
 	for(let i = 1; i <= n; i++) {
 		let way = [];
@@ -29,19 +28,14 @@ function main(n) {
 			way.push(i); 
 			if (remain !== 0) way.push(remain);
 			ways.push(way);
-		} else if(i + remain < n) {
-			let arr = []; arr.push(i);
-			if(remain !== 0) arr.push(remain);
-			toFix.push(arr)
-		}
+		} 
 
 		if(i + result == n) {
 			if(result !== remain) {
-				way.push(i); way.push(result);
+				way.push(i); 
+				way.push(result);
 				ways.push(way);
 			}
-		} else if(i + result < n) {
-			toFix.push([i, result]);
 		} else if(i + result > n) {
 			let arr = [];
 			if((result-i) > 0) {
@@ -82,6 +76,11 @@ function init(n) {
 	return response;
 
 }
+const res = [];
+init(5).forEach(el => {
+	console.log(el)
+	res.push(el)
+})
 
-console.log(init(6).length);
+console.log(res);
 
