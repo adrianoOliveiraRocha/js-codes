@@ -15,6 +15,31 @@ Array.prototype.equals = function(arr) {
 
 }
 
+Array.prototype.someElements = function(arr) {
+	if(this.length === arr.length) {
+		// let response = true;
+		for(let i = 0; i < this.length; i++) {
+			console.log(this[i]); console.log(arr);
+			console.log(this[i] in arr);
+			
+			console.log(arr[i]); console.log(this);
+			console.log(arr[i] in this);
+			
+			console.log("\n");
+			
+			
+		}
+		return;
+	 } else {
+	 	return false;
+	 }
+}
+
+let arr1 = [1, 2, 3];
+let arr2 = [3, 2, 1];
+
+console.log(arr1.someElements(arr2));
+
 function main(n) {
 
 	let ways = [];
@@ -77,33 +102,21 @@ function init(n) {
 
 }
 
+/*
 const res = [];
 init(5).forEach(el => {
-	/*
-	el =>
-	[ 1, 4 ]
-	[ 3, 2 ]
-	[ 4, 1 ]
-	[ 5 ]
-	[ 1, 1, 3 ]
-	[ 1, 2, 2 ]
-	[ 1, 3, 1 ]
-	[ 1, 4 ]
-	[ 1, 2, 1, 1 ]
-	[ 1, 2, 2 ]
-	[ 2, 1, 1, 1 ]
-	[ 2, 1, 2 ]
-	[ 3, 1, 1 ]
-	[ 3, 2 ]
-	[ 1, 3, 1 ]
-	[ 2, 2, 1 ]
-	[ 3, 1, 1 ]
-	[ 4, 1 ]
-	*/
-	res.forEach(r => {
-		// if el was different of all elements from res, push it in the res
-	})
+	
+	if(res.length === 0) {
+		res.push(el);
+	} else {
+		let exists = false; 
+		res.forEach(r => {
+			if(r.equals(el)) exists = true;
+		});
+		if(!exists) res.push(el);
+	}
+	
 })
 
 console.log(res);
-
+*/
