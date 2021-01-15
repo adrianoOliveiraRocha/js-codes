@@ -1,5 +1,5 @@
 'use strict';
-// not perfect
+// 63 line
 Array.prototype.theSomeArray = function(arr) {
 	if(this.length === arr.length) {
 		for(let i = 0; i < this.length; i++) {
@@ -48,23 +48,19 @@ function ste2(n) {
 }
 
 function step1(n) {
-	/*
-	One problem:
-	fromN doesn't has just two elements. You are working only with fN[0] and fN[1]
-	When n is 7, for example, fromN is [ [ 1, 6 ], [ 4, 3 ], [ 5, 2 ], [ 6, 1 ], [ 7 ] ] 
-	*/
 	const response = [];
 	let ways = [];
 	let fromN = ste2(n);
-	console.log(fromN)
 	ways.push(fromN);
 
 	fromN.forEach(fN => {
+		
 		ste2(fN[0]).forEach(a => { 
 			let arr = [];
 			ste2(fN[1]).forEach(b => {
 				arr.push([a, b]);
-			})
+			});
+			console.log(arr)
 			ways.push(arr);
 		})
 
@@ -104,5 +100,5 @@ function main(n) {
 
 
 
-console.log(main(5).length);
+console.log(main(7).length);
 
