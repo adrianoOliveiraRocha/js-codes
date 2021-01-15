@@ -1,6 +1,6 @@
 'use strict';
-
-Array.prototype.equals = function(arr) {
+/*
+Array.prototype.equals = function(arr) {	
 	
 	if(this.length === arr.length) {
 		for(let i = 0; i < this.length; i++) {
@@ -14,31 +14,19 @@ Array.prototype.equals = function(arr) {
 	}
 
 }
+*/
 
 Array.prototype.someElements = function(arr) {
 	if(this.length === arr.length) {
-		// let response = true;
 		for(let i = 0; i < this.length; i++) {
-			console.log(this[i]); console.log(arr);
-			console.log(this[i] in arr);
-			
-			console.log(arr[i]); console.log(this);
-			console.log(arr[i] in this);
-			
-			console.log("\n");
-			
-			
+			if(!arr.includes(this[1])) return false;
+			if(!this.includes(arr[i])) return false;			
 		}
-		return;
 	 } else {
 	 	return false;
 	 }
+	 return true;
 }
-
-let arr1 = [1, 2, 3];
-let arr2 = [3, 2, 1];
-
-console.log(arr1.someElements(arr2));
 
 function main(n) {
 
@@ -66,9 +54,9 @@ function main(n) {
 			if((result-i) > 0) {
 				let arr = [1, (result-i) > 0 ? (result-i) : null];
 				ways.push(arr);
-			}			
-			
+			}					
 		}
+		
 	}
 
 	return ways;
@@ -102,7 +90,7 @@ function init(n) {
 
 }
 
-/*
+
 const res = [];
 init(5).forEach(el => {
 	
@@ -111,7 +99,7 @@ init(5).forEach(el => {
 	} else {
 		let exists = false; 
 		res.forEach(r => {
-			if(r.equals(el)) exists = true;
+			if(r.someElements(el)) exists = true;
 		});
 		if(!exists) res.push(el);
 	}
@@ -119,4 +107,4 @@ init(5).forEach(el => {
 })
 
 console.log(res);
-*/
+
