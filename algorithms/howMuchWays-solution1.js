@@ -104,5 +104,5 @@ function main(n) {
 
 
 
-console.log(main(7).length);
+console.log(main(5).length);
 
