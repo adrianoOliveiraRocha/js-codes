@@ -35,10 +35,12 @@ function ste2(n) {
 			}
 		} else if(i + result > n) {
 			let arr = [];
-			if((result-i) > 0) {
-				let arr = [1, (result-i) > 0 ? (result-i) : null];
+			if((result - i) > 0) {
+				let arr = [1, (result - i) > 0 ? (result - i) : null];
 				ways.push(arr);
 			}					
+		} else {
+			ways.push([i, result])
 		}
 
 	}
@@ -60,7 +62,6 @@ function step1(n) {
 			ste2(fN[1]).forEach(b => {
 				arr.push([a, b]);
 			});
-			console.log(arr)
 			ways.push(arr);
 		})
 
@@ -79,10 +80,19 @@ function step1(n) {
 function main(n) {
 	const res = [];
 	step1(n).forEach(el => {
-		
+
 		if(res.length === 0) {
 			res.push(el);
 		} else {
+
+			/*
+			now, you have some arrays in with the sum of the elments is less then n. In this cases, you should
+			complete the array with one
+			*/
+
+			const s = el.reduce((acum, curr) => acum + curr);
+			if(s < n) console.log("el sum is less then n: ", el)
+
 			let exists = false; 
 			res.forEach(r => {
 				if(r.theSomeArray(el)) exists = true;
@@ -100,5 +110,5 @@ function main(n) {
 
 
 
-console.log(main(7).length);
+console.log(main(7));
 
