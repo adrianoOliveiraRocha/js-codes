@@ -1,5 +1,18 @@
 'use strict';
-// 63 line
+
+Array.prototype.equals = function(arr) {
+	if(this.length === arr.length) {
+		for(let i = 0; i < this.length; i++) {
+			if(this[i] !== arr[i]) {
+				return false;
+			}
+		}
+	} else {
+		return false;
+	}
+	return true;
+}
+
 Array.prototype.theSomeArray = function(arr) {
 	if(this.length === arr.length) {
 		for(let i = 0; i < this.length; i++) {
@@ -10,6 +23,14 @@ Array.prototype.theSomeArray = function(arr) {
 	 	return false;
 	 }
 	 return true;
+}
+
+Array.prototype.completeWithOne = function(s, n) {
+	while(s < n) {
+		this.push(1);
+		s = this.reduce((acum, curr) => acum + curr);
+	}
+	return this;
 }
 
 function ste2(n) {
@@ -79,36 +100,37 @@ function step1(n) {
 
 function main(n) {
 	const res = [];
+	res.push([n]);
+	let aone = new Array(n);
+	aone.fill(1, 0);
+	res.push(aone);
 	step1(n).forEach(el => {
 
 		if(res.length === 0) {
 			res.push(el);
 		} else {
-
 			/*
 			now, you have some arrays in with the sum of the elments is less then n. In this cases, you should
 			complete the array with one
 			*/
-
 			const s = el.reduce((acum, curr) => acum + curr);
-			if(s < n) console.log("el sum is less then n: ", el)
+			if(s < n) {
+				// console.log("el sum is less then n: ", el);
+				el = el.completeWithOne(s, n);
+			}
 
 			let exists = false; 
 			res.forEach(r => {
-				if(r.theSomeArray(el)) exists = true;
+				if(r.theSomeArray(el) || r.equals(el)) exists = true;
 			});
 			if(!exists) res.push(el);
 		}
 		
 	});
-
-	let withOne = new Array(n);
-	withOne.fill(1, 0, n);
-	res.push(withOne);
+	
 	return res;
 }
 
-
-
-console.log(main(7));
+console.log(main(8));
+console.log(main(8).length);
 
