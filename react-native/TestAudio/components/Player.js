@@ -31,6 +31,7 @@ export default function Player() {
     });
     
     setSound(sound); 
+
   }
 
   if(!sound) {
@@ -38,7 +39,7 @@ export default function Player() {
   }
 
   async function playSound() { 
-    await sound.playAsync();     
+    await sound.playAsync();   
   }
 
   async function stopSound() {
@@ -62,7 +63,7 @@ export default function Player() {
       <View style={{padding: 10}}>
         <Button title="Stop Sound" onPress={stopSound}/>
       </View>      
-      <StatusBar style="auto" />
+      <StatusBar style="auto"/>
     </View>
   );
 }
