@@ -14,7 +14,6 @@ try {
 }
 
 export default function Player() {
-  
   const [sound, setSound] = React.useState(false);
 
   async function createSound() {
@@ -23,6 +22,7 @@ export default function Player() {
     await sound.loadAsync(SoundLibrary.rain);
     await sound.setIsLoopingAsync(true);
     await sound.setProgressUpdateIntervalAsync(0);
+    
     setSound(sound); 
   }
 
@@ -32,18 +32,20 @@ export default function Player() {
   }
 
   async function playSound() {  
-    console.log("playing");
-    // await sound.playAsync()
     await sound.replayAsync({
       positionMillis: 0,
-      shouldPlay: true
+      shouldPlay: true,
+      downloadFirst: false
     });    
+  }
+
+  async function stopSound() {
+    await sound.stopAsync();
   }
 
   React.useEffect(() => {
     return sound
     ? () => {
-      console.log("unloading from memory")
       sound.unloadAsync();
     }
     : undefined
@@ -52,7 +54,12 @@ export default function Player() {
   return (
     <View style={styles.container}>
       <Text>This is a test</Text>
-      <Button title="Play Sound" onPress={playSound}/>
+      <View style={{padding: 10}}>
+        <Button title="Play Sound" onPress={playSound}/>
+      </View>
+      <View style={{padding: 10}}>
+        <Button title="Stop Sound" onPress={stopSound}/>
+      </View>      
       <StatusBar style="auto" />
     </View>
   );
