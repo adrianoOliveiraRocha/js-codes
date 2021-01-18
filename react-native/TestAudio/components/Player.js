@@ -17,26 +17,28 @@ export default function Player() {
   const [sound, setSound] = React.useState(false);
 
   async function createSound() {
-    console.log('one time');
     const sound = new Audio.Sound();
-    await sound.loadAsync(SoundLibrary.rain);
-    await sound.setIsLoopingAsync(true);
-    await sound.setProgressUpdateIntervalAsync(0);
+
+    await sound.loadAsync(SoundLibrary.rain, {
+      progressUpdateIntervalMillis: 0,
+      positionMillis: 0,
+      shouldPlay: false,
+      rate: 1.0,
+      shouldCorrectPitch: true,
+      volume: 1.0,
+      isMuted: false,
+      isLooping: true,
+    });
     
     setSound(sound); 
   }
 
   if(!sound) {
-    console.log("create sound");
     createSound();
   }
 
-  async function playSound() {  
-    await sound.replayAsync({
-      positionMillis: 0,
-      shouldPlay: true,
-      downloadFirst: false
-    });    
+  async function playSound() { 
+    await sound.playAsync();     
   }
 
   async function stopSound() {
