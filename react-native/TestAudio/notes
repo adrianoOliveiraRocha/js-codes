@@ -1,8 +1,1 @@
 https://docs.expo.io/versions/latest/sdk/audio/
-
-/*
- Make sure to update your UI based on the isPlaying and isBuffering properties of the 
- AVPlaybackStatus (described below).
-*/
-
-playbackObject.setIsLoopingAsync(value)

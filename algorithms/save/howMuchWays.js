@@ -100,10 +100,18 @@ function step1(n) {
 
 function main(n) {
 	const res = [];
+
 	res.push([n]);
+
 	let aone = new Array(n);
 	aone.fill(1, 0);
+	
 	res.push(aone);
+
+	if(n % 2 === 0) {
+		res.push([n/2, n/2]);
+	}
+
 	step1(n).forEach(el => {
 
 		if(res.length === 0) {
@@ -115,7 +123,6 @@ function main(n) {
 			*/
 			const s = el.reduce((acum, curr) => acum + curr);
 			if(s < n) {
-				// console.log("el sum is less then n: ", el);
 				el = el.completeWithOne(s, n);
 			}
 
