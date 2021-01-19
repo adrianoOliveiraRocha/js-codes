@@ -105,7 +105,7 @@ function main(n) {
 
 	let aone = new Array(n);
 	aone.fill(1, 0);
-	
+
 	res.push(aone);
 
 	if(n % 2 === 0) {
@@ -117,10 +117,6 @@ function main(n) {
 		if(res.length === 0) {
 			res.push(el);
 		} else {
-			/*
-			now, you have some arrays in with the sum of the elments is less then n. In this cases, you should
-			complete the array with one
-			*/
 			const s = el.reduce((acum, curr) => acum + curr);
 			if(s < n) {
 				el = el.completeWithOne(s, n);
