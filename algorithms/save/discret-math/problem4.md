@@ -18,6 +18,6 @@ Solution:
 	2 - T1 is not a scoundrel because the other two are not knight. T1 is lying. 
 			Therefore, he is not a knight;
 
-	3 - T3 is telling the truth because at least one of them is a knight;
-	
+	3 - T3 is telling the truth because at least one of them is a knight.
+
 	Response: T1 and T3 are knight. T2 is knave
