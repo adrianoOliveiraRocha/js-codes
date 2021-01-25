@@ -13,6 +13,7 @@ Problem:
 	Which troll is which?
 
 Solution:
+
 	1 - T2 is lying;
 
 	2 - T1 is not a scoundrel because the other two are not knight. T1 is lying. 
