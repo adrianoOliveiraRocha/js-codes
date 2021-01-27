@@ -7,7 +7,7 @@ import StackNavigation from './navigators/StackNavigation';
 
 export default function App() {
   return (
-    <DrawerNavigation />
+    <BottomTabNavigation />
   );
 }
 
