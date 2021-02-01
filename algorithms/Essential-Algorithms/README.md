@@ -1,4 +1,3 @@
 <strong>Essential Algorithms</strong> <br />
-A Practical Approach to Computer <br />
-Algorithms <br />
+A Practical Approach to Computer Algorithms <br />
 Rod Stephens
