@@ -20,6 +20,10 @@ g, the algorithm’s total performance is O(f(N) + g(N)).
 	O(f(N)), and O(f(C × N)) is the same as O(f(N)).
 */
 
+/*
+Example 1: 
+rules 1, 2 and 3
+
 function findLargest(arr) {
   let largest = arr[0]; // rule 1: O(1)
   for(let i = 0; i <= arr.length; i++) { // rule 1: O(N)
@@ -31,6 +35,8 @@ function findLargest(arr) {
 let arr = [1, 3, 87, 1];
 findLargest(arr);
 
+*/
+
 // rule 2: O(1 + N + 1) == O(2 + N)
 
 /*
@@ -38,5 +44,29 @@ rule 3: The preceding example showed that the FindLargest algorithm has runtime
 O(2 + N). When N grows large, the function N is larger than the constant value
 2, so O(2 + N) simplifi es to O(N)
 */
+
+/*
+Example 2:
+rule 4
+
+function ContainsDuplicates(arr) {
+	for(i = 0; i < arr.length; i++) { // O(N)
+		for(let j = 0; j < arr.length; j++) { // O(N)
+			if(i != j) {
+				if(arr[i] == arr[j]) return true;
+			}
+		}
+	} 
+	return false;
+}	
+
+arr1 = [1, 2, 3, 4, 5, 1];
+console.log(ContainsDuplicates(arr1));
+
+Because one loop is nested inside the other, the combined performance is
+O(N × N) = O(N 2 ).
+*/
+
+
 
 
