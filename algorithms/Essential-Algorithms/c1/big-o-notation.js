@@ -1,4 +1,5 @@
 /*
+
 Big O Notation
 There are fi ve basic rules for calculating an algorithm’s Big O notation:
 
@@ -18,11 +19,13 @@ g, the algorithm’s total performance is O(f(N) + g(N)).
 	
 5. Ignore constant multiples. If C is a constant, O(C × f(N)) is the same as
 	O(f(N)), and O(f(C × N)) is the same as O(f(N)).
+	
 */
 
 /*
 Example 1: 
 rules 1, 2 and 3
+*/
 
 function findLargest(arr) {
   let largest = arr[0]; // rule 1: O(1)
@@ -37,10 +40,6 @@ findLargest(arr);
 
 // rule 2: O(1 + N + 1) == O(2 + N)
 
-*/
-
-
-
 /*
 rule 3: The preceding example showed that the FindLargest algorithm has runtime
 O(2 + N). When N grows large, the function N is larger than the constant value
@@ -50,12 +49,13 @@ O(2 + N). When N grows large, the function N is larger than the constant value
 /*
 Example 2:
 rule 4
+*/
 
 function ContainsDuplicates(arr) {
 	for(i = 0; i < arr.length; i++) { // O(N)
 		for(let j = 0; j < arr.length; j++) { // O(N)
-			if(i != j) {
-				if(arr[i] == arr[j]) return true;
+			if(i != j) { // O(1)
+				if(arr[i] == arr[j]) return true; // O(1)
 			}
 		}
 	} 
@@ -65,8 +65,14 @@ function ContainsDuplicates(arr) {
 arr1 = [1, 2, 3, 4, 5, 1];
 console.log(ContainsDuplicates(arr1));
 
-Because one loop is nested inside the other, the combined performance is
-O(N × N) = O(N**2 ).
+/*
+Rule 5
+ContainsDuplicates has O(N) * O(N) and O(1) + O(1)
+O(N) * O(N) == O(N**2)
+O(1) + O(1) = O(2)
+Then we have O(2 + N**2)
+Rule 5 lets you ignore factor 2 (it is constant) , so the runtime is O(N**2)
+
 */
 
 
