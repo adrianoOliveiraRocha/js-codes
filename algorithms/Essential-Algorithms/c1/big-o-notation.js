@@ -35,14 +35,16 @@ function findLargest(arr) {
 let arr = [1, 3, 87, 1];
 findLargest(arr);
 
+// rule 2: O(1 + N + 1) == O(2 + N)
+
 */
 
-// rule 2: O(1 + N + 1) == O(2 + N)
+
 
 /*
 rule 3: The preceding example showed that the FindLargest algorithm has runtime
 O(2 + N). When N grows large, the function N is larger than the constant value
-2, so O(2 + N) simplifi es to O(N)
+2, so O(2 + N) simplifies to O(N)
 */
 
 /*
@@ -64,7 +66,7 @@ arr1 = [1, 2, 3, 4, 5, 1];
 console.log(ContainsDuplicates(arr1));
 
 Because one loop is nested inside the other, the combined performance is
-O(N × N) = O(N 2 ).
+O(N × N) = O(N**2 ).
 */
 
 
