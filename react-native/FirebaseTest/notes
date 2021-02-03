@@ -1,0 +1,11 @@
+https://developer.aliyun.com/mirror/npm/package/expo-firebase-app/v/2.0.0-rc.0
+https://www.youtube.com/watch?v=KnwfK807Mgc&list=PLy9JCsy2u97m-xWAxGwHZ2vITtj4qBKDm
+
+1 - I cannot install firebase
+2- I received the same error when a try update npm:
+  npm ERR! grpc@1.24.2 install: `node-pre-gyp install --fallback-to-build --library=static_library`
+  npm ERR! Exit status 1
+  npm ERR! 
+  npm ERR! Failed at the grpc@1.24.2 install script.
+
+link: https://github.com/grpc/grpc-node/issues/1183#issuecomment-541418202
