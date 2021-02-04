@@ -1,15 +1,16 @@
 {
   "project_info": {
     "project_number": "68174645451",
+    "firebase_url": "https://w3s-project-default-rtdb.firebaseio.com",
     "project_id": "w3s-project",
     "storage_bucket": "w3s-project.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:68174645451:android:9ab3a175286438a084334e",
+        "mobilesdk_app_id": "1:68174645451:android:91f98a0f3fa3585084334e",
         "android_client_info": {
-          "package_name": "w3s.push.notifications"
+          "package_name": "w3s.firebase.test"
         }
       },
       "oauth_client": [

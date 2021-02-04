@@ -20,14 +20,11 @@
       "supportsTablet": true
     },
     "android": {
-      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "permissions" : [],
-      "package": "w3s.firebase.test",
-      "versionCode": 1
+      "package": "w3s.firebase.test"
     },
     "web": {
       "favicon": "./assets/favicon.png"
