@@ -1,5 +1,28 @@
-function printMessage(elementId, format, message) {
-	document.getElementById(`${elementId}`).innerHTML = `<${format}>${message}<${format}/>`;
+function addToDom(id) {
+	let newElement = document.createElement("div");
+	newElement.id = id;
+	return newElement;
 }
 
-printMessage('msg', 'h1', "The querySelector doesn't works any more");
+function h1() {
+	return "h1";
+}
+
+function echo() {
+	return console.log;
+}
+
+function run(element, type, log) {
+	return function(message) {
+		console.log(`
+			message: ${message}
+			element: ${element};
+			type: ${type()};
+			log: ${log()};
+		`);
+	}	
+}
+
+const printMessage = run(addToDom('msg'), h1, echo);
+
+printMessage("My new message");
