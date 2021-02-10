@@ -9,8 +9,13 @@ const App = () => {
   return (
     <>
       <View style={styles.container}>
-        <Text>Test</Text>
+				<View style={styles.body}>
+					<Text>Body</Text>
+				</View>
       </View>
+			<View style={styles.footer}>
+				<Text>Footer</Text>
+			</View>
     </>
   );
 };
@@ -18,8 +23,12 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1
-  },  
+  }, 
+	body: {
+		flex: 0.7
+	}, 
   footer: {
+		flex: 0.3,
     color: Colors.dark,
     fontSize: 12,
     fontWeight: '600',
