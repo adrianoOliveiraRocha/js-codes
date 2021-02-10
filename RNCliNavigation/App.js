@@ -1,35 +1,40 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet
-} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import NavStack from './src/navigators/NavStack'
 
-const App = () => {
-  return (
-    <>
-      <View style={styles.container}>
-				<View style={styles.body}>
-					<Text>Body</Text>
-				</View>
-      </View>
-			<View style={styles.footer}>
-				<Text>Footer</Text>
+export default function App() {
+	return (
+		<View style={styles.container}>
+			<View style={styles.body}>
+				{/* <Text style={styles.title}>Test</Text> */}
+				<NavStack />
 			</View>
-    </>
-  );
-};
+			<View style={styles.footer}>
+				<Text style={styles.title}>Footer</Text>
+			</View>
+		</View>
+		
+	)
+}
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+		alignItems: 'center'
   }, 
 	body: {
-		flex: 0.7
+		flex: 0.7,
+		textAlign: 'center',
+		alignContent: 'center',
+		justifyContent: 'center'
 	}, 
+	title: {
+		fontSize: 25
+	},
   footer: {
 		flex: 0.3,
-    color: Colors.dark,
+    color: 'black',
     fontSize: 12,
     fontWeight: '600',
     padding: 4,
@@ -37,5 +42,3 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
 });
-
-export default App;
