@@ -1,20 +1,11 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import NavStack from './src/navigators/NavStack'
+import NavStack from './src/navigators/NavStack';
 
 export default function App() {
 	return (
-		<View style={styles.container}>
-			<View style={styles.body}>
-				{/* <Text style={styles.title}>Test</Text> */}
-				<NavStack />
-			</View>
-			<View style={styles.footer}>
-				<Text style={styles.title}>Footer</Text>
-			</View>
-		</View>
-		
+		<NavStack />		
 	)
 }
 
