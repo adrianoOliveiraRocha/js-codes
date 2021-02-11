@@ -2,132 +2,57 @@ import * as React from 'react';
 import { View, Button, Text, Animated } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
-function Home({ navigation }) {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#03cafc'
-      }}>
-      <Text
-        style={{
-          fontSize: 20,
-          color: '#ffffff',
-          fontWeight: '800'
-        }}
-      >Home is here</Text>
-      <Button 
-        title="Go to Contact"
-        onPress={() => navigation.navigate("Contact")}
-      />
-    </View>
-  );
-}
-
-function Contact({ navigation }) {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#c203fc'
-      }}>
-      <Text
-        style={{
-          fontSize: 20,
-          color: '#ffffff',
-          fontWeight: '800',
-
-        }}
-      >Contact is here</Text>
-      <Button 
-        title="Go to About"
-        onPress={() => navigation.navigate("About")}
-      />
-    </View>
-  );
-}
-
-function About({ navigation }) {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#48d969'
-      }}>
-      <Text
-        style={{
-          fontSize: 20,
-          color: '#ffffff',
-          fontWeight: '800',
-
-        }}
-      >About is here</Text>
-      <Button 
-        title="Go to Home"
-        onPress={() => navigation.navigate("Home")}
-      />
-    </View>
-  );
-}
-
-const forFad = ({ current, next }) => {
-  const opacity = Animated(
-    current.progress,
-    next ? next.progress : 0
-  ).interpolate({
-    inputRange: [0, 1, 2],
-    outputRange: [0, 1, 0] 
-  });
-
-  return {
-    leftButtonStyle: { opacity },
-    rigthButtonStyle: { opacity },
-    titleStyle: { opacity },
-    backgroundStyle: { opacity }
-  };
-}
+import HomeScreen from './../screens/HomeScreen';
+import Contact from './../screens/Contact';
+import About from './../screens/About';
 
 const Stack = createStackNavigator();
 
 function MyStack() {
   return (
+    
     <Stack.Navigator>
+
       <Stack.Screen
-        name="Home"
-        component={Home}
+        name="HomeScreen"
+        component={HomeScreen}
         options={{
+          title: 'Home Screen',
           headerTintColor: "white",
-          headerStyle: {backgroundColor: 'green'}
+          headerStyle: {backgroundColor: 'green'},          
         }}
       />
 
       <Stack.Screen
         name="Contact"
         component={Contact}
-        options={{ headerStyleInterpolator: forFad }}
+        options={{
+          title: 'Contact us',
+          headerTintColor: "white",
+          headerStyle: {backgroundColor: '#45aa65'},          
+        }}
       />
 
       <Stack.Screen 
         name="About"
         component={About}
-        options={{ headerStyleInterpolator: forFad }}
+        options={{
+          title: 'About us',
+          headerTintColor: "white",
+          headerStyle: {backgroundColor: '#788945'},          
+        }}
       />
 
     </Stack.Navigator>
   );
 }
 
-export default function StackNavigation() {
+export default function NavStack() {
+  // If you want push a navigator insede of another, do not pass other NavigationContainer 
   return (
-    <NavigationContainer>
-      <MyStack />
-    </NavigationContainer>
+    // <NavigationContainer>
+    //   <MyStack />
+    // </NavigationContainer>
+    <MyStack />
   );
 }

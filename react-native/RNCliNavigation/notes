@@ -1,0 +1,4 @@
+https://reactnative.dev/docs/signed-apk-android
+https://tableless.com.br/react-native-build-release-android/
+
+keytool -genkeypair -v -keystore my-upload-key.keystore -alias w3s-test -keyalg RSA -keysize 2048 -validity 10000
