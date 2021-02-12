@@ -1,13 +1,17 @@
 'strict'
 
-let sayMoo;
-if(false) {
-  sayMoo = function() { console.log("sayMoo true") }
-} else {
-  sayMoo = function() { console.log("sayMoo false") }
+function Person() {
+  let name = "Adriano";
+  return {
+    get: function() {
+      return name;
+    } 
+  }
 }
 
-sayMoo()
+let p = new Person();
+console.log(p.get());
+console.log(p.name)
 
 
 
