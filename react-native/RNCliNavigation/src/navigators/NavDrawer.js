@@ -6,6 +6,8 @@ import {
   DrawerItemList,
   DrawerItem,
 } from '@react-navigation/drawer';
+import Icon from 'react-native-vector-icons/Ionicons';
+import { Platform } from 'react-native';
 
 function Feed({ navigation }) {
   return (
@@ -30,6 +32,7 @@ function CustomDrawerContent(props) {
     <DrawerContentScrollView {...props}>
       <DrawerItemList {...props} />
       <DrawerItem
+        icon={() => <Icon name={Platform.OS === 'ios' ? 'ios-close' : 'md-close'} color='black' size={22}/>}
         label="Close drawer"
         onPress={() => props.navigation.closeDrawer()}
       />

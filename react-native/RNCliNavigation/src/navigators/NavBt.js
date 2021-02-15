@@ -14,14 +14,6 @@ function WellCome() {
   );
 }
 
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
-
 const Tab = createBottomTabNavigator();
 
 export default function NavBt() {
@@ -52,7 +44,7 @@ export default function NavBt() {
             <MaterialCommunityIcons name="account" color={color} size={26} />
           ),
         }}/>
-        
+
         <Tab.Screen name="NavStack" 
         component={NavStack} 
         options={{
