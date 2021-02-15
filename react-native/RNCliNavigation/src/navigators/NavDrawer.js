@@ -32,7 +32,8 @@ function CustomDrawerContent(props) {
     <DrawerContentScrollView {...props}>
       <DrawerItemList {...props} />
       <DrawerItem
-        icon={() => <Icon name={Platform.OS === 'ios' ? 'ios-close' : 'md-close'} color='black' size={22}/>}
+        icon={() => <Icon name={Platform.OS === 'ios' ? 'ios-close' : 'md-close'} 
+          color='black' size={22}/>}
         label="Close drawer"
         onPress={() => props.navigation.closeDrawer()}
       />
