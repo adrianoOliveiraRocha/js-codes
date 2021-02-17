@@ -1,0 +1,3 @@
+https://github.com/vikeri/react-native-background-job // The jobs will run even if the app has been closed and, by default, also persists over restarts.
+https://github.com/jamesisaac/react-native-background-task
+https://github.com/transistorsoft/react-native-background-fetch
