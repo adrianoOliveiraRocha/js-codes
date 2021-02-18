@@ -1,21 +1,10 @@
-Array.prototype.exists = function(arr) {  
-  let result = false;
-  this.forEach(el => {
-    result = el.includes(arr[0]) && el.includes(arr[1]) ? true : false;
-  })
-  return result;
-}
-
 function twoSum(arr, s) {
-  let res = [];
-  arr.forEach(i => {
-    arr.forEach(j => {
-      if(i + j === s && !res.exists([i, j])) {
-        res.push([i, j]);      
-      }
-    })
+  let response = false;
+  arr.forEach(element => {
+    let rest = Math.abs(s - element);
+    if(arr.includes(rest)) response = true;
   });
-  return res;
+  return response;
 }
 
 let arr = [2, 3, 1, 5, 6, 8, 2, 77, 4];
