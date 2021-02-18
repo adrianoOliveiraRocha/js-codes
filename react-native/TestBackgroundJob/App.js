@@ -42,24 +42,30 @@ const everRunningJobKey = "everRunningJobKey";
 // instantiated when running in headless mode
 BackgroundJob.register({
   jobKey: regularJobKey,
-  job: () => console.log(`Background Job fired!. Key = ${regularJobKey}`)
+  job: () => {
+    alert(`Background Job fired!. Key = ${regularJobKey}`)
+  }
 });
+
 BackgroundJob.register({
   jobKey: exactJobKey,
   job: () => {
-    console.log(`${new Date()}Exact Job fired!. Key = ${exactJobKey}`);
+    alert(`${new Date()}Exact Job fired!. Key = ${exactJobKey}`);
   }
 });
+
 BackgroundJob.register({
   jobKey: foregroundJobKey,
-  job: () => console.log(`Exact Job fired!. Key = ${foregroundJobKey}`)
+  job: () => alert(`Exact Job fired!. Key = ${foregroundJobKey}`)
 });
+
 BackgroundJob.register({
   jobKey: everRunningJobKey,
-  job: () => console.log(`Ever Running Job fired! Key=${everRunningJobKey}`)
+  job: () => alert(`Ever Running Job fired! Key=${everRunningJobKey}`)
 });
 
 export default class backtest extends Component {
+
   constructor(props) {
     super(props);
     this.state = { jobs: [] };
@@ -84,7 +90,9 @@ export default class backtest extends Component {
               jobKey: regularJobKey,
               notificationTitle: "Notification title",
               notificationText: "Notification text",
-              period: 15000
+              period: 1000,
+              allowExecutionInForeground: true,
+              notificationText: 'w3s running'
             });
           }}
         >
@@ -128,8 +136,8 @@ export default class backtest extends Component {
                     allowWhileIdle: true
                   });
                 } else {
-                  console.log(
-                    "To ensure app functions properly,please manually remove app from battery optimization menu."
+                  alert(
+                    "To ensure app functions properly, please manually remove app from battery optimization menu."
                   );
                   //Dispay a toast or alert to user indicating that the app needs to be removed from battery optimization list, for the job to get fired regularly
                 }
@@ -159,12 +167,12 @@ export default class backtest extends Component {
     );
   }
   componentDidMount() {
-    // BackgroundJob.schedule({
-    //   jobKey: exactJobKey,
-    //   period: 1000,
-    //   timeout: 10000,
-    //   exact: true
-    // });
+    BackgroundJob.schedule({
+      jobKey: exactJobKey,
+      period: 1000,
+      timeout: 10000,
+      exact: true
+    });
   }
 }
 
