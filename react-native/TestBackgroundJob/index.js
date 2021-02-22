@@ -41,20 +41,23 @@ const everRunningJobKey = "everRunningJobKey";
 // This has to run outside of the component definition since the component is never
 // instantiated when running in headless mode
 BackgroundJob.register({
+  /* In this case, the exact parameter is false. Then, the period is not the same you 
+  choosed */
   jobKey: regularJobKey,
-  job: () => console.log(`Background Job fired!. Key = ${regularJobKey}`)
+  job: () => console.log(`RegularJo Job!. Key = ${regularJobKey}`)
 });
 
-// works only in background
 BackgroundJob.register({
+  // works only in background
   jobKey: exactJobKey,
   job: () => {
     console.log(`${new Date()} Exact Job fired!. Key = ${exactJobKey}`);
   }
 });
 BackgroundJob.register({
+  // works in background and foreground
   jobKey: foregroundJobKey,
-  job: () => console.log(`Exact Job fired!. Key = ${foregroundJobKey}`)
+  job: () => console.log(`Foreground Job fired!. Key = ${foregroundJobKey}`)
 });
 BackgroundJob.register({
   jobKey: everRunningJobKey,
@@ -84,8 +87,8 @@ export default class backtest extends Component {
           onPress={() => {
             BackgroundJob.schedule({
               jobKey: regularJobKey,
-              notificationTitle: "Notification title",
-              notificationText: "Notification text",
+              notificationTitle: "Regular Job",
+              notificationText: "Regular Job is runing...",
               period: 15000
             });
           }}
@@ -122,19 +125,18 @@ export default class backtest extends Component {
           onPress={() => {
             BackgroundJob.isAppIgnoringBatteryOptimization(
               (error, ignoringOptimization) => {
-                if (ignoringOptimization === true) {
-                  BackgroundJob.schedule({
-                    jobKey: everRunningJobKey,
-                    period: 1000,
-                    exact: true,
-                    allowWhileIdle: true
-                  });
-                } else {
-                  console.log(
-                    "To ensure app functions properly,please manually remove app from battery optimization menu. ", error
+                if (ignoringOptimization !== true) {
+                  alert(
+                    "To ensure app functions properly, please manually remove app from battery optimization menu. ", error
                   );
-                  //Dispay a toast or alert to user indicating that the app needs to be removed from battery optimization list, for the job to get fired regularly
+                  
                 }
+                BackgroundJob.schedule({
+                  jobKey: everRunningJobKey,
+                  period: 1000,
+                  exact: true,
+                  allowWhileIdle: true
+                });
               }
             );
           }}
