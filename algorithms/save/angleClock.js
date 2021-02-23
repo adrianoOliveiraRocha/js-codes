@@ -19,7 +19,7 @@ function angleClock(hour, minute) {
   let h = 0.5 * (60 * hour * minute);
   let m = 6 * minute;
   let angle = h - m;
-  console.log(angle);
+  console.log(`h: ${h}; m: ${m}; angle: ${angle}`);
   return (angle > 180) ? 360 - angle : angle;
 }
 
