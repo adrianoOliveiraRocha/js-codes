@@ -1,5 +1,5 @@
 
-<h1>Big O Notation</h1>
+<h1 style="color: blue">Big O Notation</h1>
 
 <h2>There are fi ve basic rules for calculating an algorithm’s Big O notation:</h2>
 
