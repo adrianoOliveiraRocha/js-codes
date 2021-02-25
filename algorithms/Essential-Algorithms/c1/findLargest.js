@@ -1,6 +1,5 @@
 
 /*
-Example 1: 
 rules 1, 2 and 3
 */
 

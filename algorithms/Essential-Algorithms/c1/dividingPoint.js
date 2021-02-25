@@ -11,6 +11,10 @@ function dividingPoint(arr) {
 	if(n2 > n1 && n2 < n3) return n2;
 	
 	return n3;
+	/*
+	Because this algorithm performs only a few fixed steps, it has O(1) perfor-
+	mance and its runtime is independent of the number of inputs N.
+	*/
 }
 
 let arr = [];
@@ -21,7 +25,3 @@ for(let i = 0; i <= 100; i++) {
 
 console.log(dividingPoint(arr));
 
-/*
-Because this algorithm performs only a few fixed steps, it has O(1) perfor-
-mance and its runtime is independent of the number of inputs N.
-*/

@@ -1,5 +1,4 @@
 /*
-Example 2:
 rule 4
 */
 
@@ -25,8 +24,9 @@ O(1) + O(1) = O(2)
 Then we have O(2 + N**2)
 Rule 5 lets you ignore factor 2 (it is constant), so the runtime is O(N**2)
 Why?
-Test: N => 2 * N - multiplie for 2
-2 * (2 * N) = 8N**2 => increased by factor 4
-(2 * N)**2 = 4N**2 => increased by factor 4
+Test: 
+	N => 2 * N - multiplie for 2
+	2 * (2 * N) = 8N**2 => increased by factor 4
+	(2 * N)**2 = 4N**2 => increased by factor 4
 
 */

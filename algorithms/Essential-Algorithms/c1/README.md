@@ -1,7 +1,7 @@
 
-<h1 style="color: blue">Big O Notation</h1>
+<h1>Big O Notation</h1>
 
-<h2>There are fi ve basic rules for calculating an algorithm’s Big O notation:</h2>
+<h2>There are five basic rules for calculating an algorithm’s Big O notation:</h2>
 
 1. If an algorithm performs a certain sequence of steps f(N) times for a math-
 	ematical function f, it takes O(f(N)) steps.
