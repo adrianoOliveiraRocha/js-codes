@@ -1,0 +1,13 @@
+https://developer.uber.com/dashboard/
+https://developer.uber.com/docs/riders/ride-requests/tutorials/api/introduction
+
+curl -H "Authorization: Token <TOKEN>" \
+     -H "Content-Type: application/json" \
+     -H "Accept-Language: en_US" \
+     'https://api.uber.com/v1.2/products?latitude=37.7752315&longitude=-122.418075'
+
+
+curl -X POST -H "Authorization: Bearer <TOKEN>" \
+     -H "Content-Type: application/json" -d \
+     '{"product_id": "821415d8-3bd5-4e27-9604-194e4359a449", "start_latitude":"37.775232", "start_longitude": "-122.4197513", "end_latitude":"37.7899886", "end_longitude": "-122.4021253","seat_count": "2"}' \
+      https://api.uber.com/v1.2/requests/estimate
