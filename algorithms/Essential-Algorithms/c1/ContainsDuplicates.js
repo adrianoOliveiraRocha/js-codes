@@ -30,3 +30,13 @@ Test:
 	(2 * N)**2 = 4N**2 => increased by factor 4
 
 */
+
+/* Like this is very better */
+function ContainsDuplicates(arr) {
+  for(i = 0; i < (arr.length - 1); i++) { // O(N)
+		for(let j = (i + 1); j < arr.length; j++) { // O(N)
+			if(arr[i] == arr[j]) return true; // O(1)
+		}
+	} 
+	return false;
+}	
