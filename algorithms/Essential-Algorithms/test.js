@@ -1,12 +1,26 @@
-function ContainsDuplicates(arr) {
-  // console.log(arr.length - 1);
-	for(i = 0; i < (arr.length - 1); i++) { // O(N)
-		for(let j = (i + 1); j < arr.length; j++) { // O(N)
-			if(arr[i] == arr[j]) return true; // O(1)
-		}
-	} 
-	return false;
-}	
+var count = 0;
 
-arr1 = [1, 2, 3, 4, 5, 1];
-console.log(ContainsDuplicates(arr1));
+function algorithm1(numberOfBoards) {
+  for(let i = 1; i <= numberOfBoards; i++) {
+    count++;
+  }
+}
+
+
+function algorithm2(first_board, last_board) {
+  // console.log(parseInt((first_board + last_board) / 2));
+  if(first_board === last_board) {
+    count++;    
+  } else {
+    let middle_board = parseInt((first_board + last_board) / 2);
+    try {
+      algorithm2(first_board, middle_board);
+      algorithm2(middle_board, last_board);
+    } catch (error) {
+      // "It's finished"
+    }
+  }
+}
+
+// algorithm1(10); // count = 10
+algorithm2(1, 10); // count ≃ 120000
