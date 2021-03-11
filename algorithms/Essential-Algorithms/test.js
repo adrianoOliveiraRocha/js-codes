@@ -1,26 +1,25 @@
-var count = 0;
+'strict'
 
-function algorithm1(numberOfBoards) {
-  for(let i = 1; i <= numberOfBoards; i++) {
-    count++;
+function pseudoRandom(n) {
+  /**
+   * Xn+1 = (a * Xn + b) mod m
+   * Xo = 0;
+   * a = 7;
+   * b = 5;
+   * m = 11;
+   */
+  let a = 7, b = 5, m = 11;
+  var rn = 0; // Xo = 0;
+  for(let i = 1; i <= n; i++) {
+    console.log(rn);
+    rn = ((a * rn) + b) % m; 
   }
+
+  // result = 1 + number Mod (100 – 1 + 1)
+  
+  return rn;
 }
 
+console.log(pseudoRandom(10));
 
-function algorithm2(first_board, last_board) {
-  // console.log(parseInt((first_board + last_board) / 2));
-  if(first_board === last_board) {
-    count++;    
-  } else {
-    let middle_board = parseInt((first_board + last_board) / 2);
-    try {
-      algorithm2(first_board, middle_board);
-      algorithm2(middle_board, last_board);
-    } catch (error) {
-      // "It's finished"
-    }
-  }
-}
-
-// algorithm1(10); // count = 10
-algorithm2(1, 10); // count ≃ 120000
+// Ensuring Fairness
