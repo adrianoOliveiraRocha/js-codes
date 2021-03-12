@@ -9,21 +9,33 @@ those methods are still not truly random.
 */
 
 function pseudoRandom(n) {
+
   /**
    * Xn+1 = (a * Xn + b) mod m
    * Xo = 0;
    * a = 7;
    * b = 5;
    * m = 11;
+   * min = 0
+   * max = 100;
    */
-  let a = 7, b = 5, m = 11;
+
+  let a = 7, b = 5, m = 3;
+  let min = 0, max = 100;
   var rn = 0; // Xo = 0;
   for(let i = 1; i <= n; i++) {
-    rn = ((a * rn) + b) % m; 
+    rn = ((a * rn) + b) % m;
   }
 
-  return rn;
+  // return 1 + rn % (max - min + 1);
+  return parseInt(min + (rn / m) * (max - min));
 
 }
 
-console.log(pseudoRandom(10));
+console.log(pseudoRandom(0));
+console.log(pseudoRandom(1));
+console.log(pseudoRandom(2));
+console.log(pseudoRandom(3));
+console.log(pseudoRandom(4));
+console.log(pseudoRandom(5));
+console.log(pseudoRandom(22));
