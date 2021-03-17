@@ -1,3 +1,4 @@
+'strict'
 // X n+1 = (A × X n + B) Mod M
 function Generator(seed) {
   let a = 7, b = 5, m = 11; // constants
@@ -13,4 +14,4 @@ function Generator(seed) {
   
 }
 
-console.log(Generator(8)); // until 10
+module.exports = Generator;
