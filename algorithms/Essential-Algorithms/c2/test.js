@@ -1,20 +1,17 @@
 'strict'
-const LinearCongruencialGenerator = require('./components/LinearCongruentialGenerator');
-const Generator = require('./components/Generator');
 
-function test(n, len) {
-  let v = parseInt(Math.random() * 10 * n) ;
-  return v; 
-}
+function GCD(n1, n2, divisor=2) {
 
-function RandomizeArray(arr) {
-  for(let i = 0; i < arr.length; i++) {
-    let j = LinearCongruencialGenerator(i, 1, 50);
-    console.log(j); 
+  // let major = (n1 > n2 ? n1 : n2);
+  if(n1 % divisor !== 0 && n2 % divisor !== 0 && n1 > 1 && n2 > 1) {
+    GCD(n1, n2, (divisor + 1));
+  } else if(n1 % divisor === 0 && n2 % divisor !== 0 && n1 > 1 && n2 > 1) {
+    GCD((n1 / divisor), n2, (divisor));
+  }  else if(n1 % divisor !== 0 && n2 % divisor === 0 && n1 > 1 && n2 > 1) {
+    GCD(n1, (n2 / divisor), (divisor));
+  } else {
+    console.log(n1 % divisor);
   }
 }
 
-let arr = [];
-for(let i = 1; i <= 50; i++) arr.push(i);
-
-RandomizeArray(arr);
+GCD(60, 24);

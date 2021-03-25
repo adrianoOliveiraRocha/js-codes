@@ -1,13 +1,27 @@
-import React from 'react';
-import { FlatList } from 'react-native';
-import { View, Text } from 'react-native';
-import { ListItem, Avatar } from 'react-native-elements'
-import { Button } from 'react-native-elements';
-import { Icon } from 'react-native-elements';
-import users from '../data/users';
+import React, { useContext } from 'react';
+import { View, FlatList, Alert } from 'react-native';
+import { ListItem, Avatar, Button, Icon } from 'react-native-elements'
+import UsersContext from '../context/UsersContext';
 
 export default props => {
-  // console.warn(Object.keys(props)) 
+  
+  const { state } = useContext(UsersContext);
+  
+  function confirmUserDeletion(user) {
+    Alert.alert(
+      'Excluir Usuário',
+      'Tem certeza que deseja excluir o usuário?',
+      [
+        {
+          text: 'Sim',
+          onPress: () => console.warn('delete ' + user.id)
+        },
+        { 
+          text: 'Não' 
+        }
+      ]
+    );
+  }
   
   function getActions(user) {
     return (
@@ -16,6 +30,11 @@ export default props => {
           onPress={() => props.navigation.navigate('UserForm', user)}
           type="clear"
           icon={<Icon name="edit" size={25} color="orange"/>} 
+        />
+        <Button 
+          onPress={() => confirmUserDeletion(user)}
+          type="clear"
+          icon={<Icon name="delete" size={25} color="red"/>} 
         />
       </>
     );
@@ -34,7 +53,7 @@ export default props => {
         <View>
           {getActions(user)}
         </View>
-        <ListItem.Chevron />
+        {/* <ListItem.Chevron /> */}
       </ListItem>
     )
   }
@@ -43,7 +62,7 @@ export default props => {
     <View>
       <FlatList 
         keyExtractor={ user => user.id.toString() }
-        data={users}
+        data={state.users}
         renderItem={getUserItem}
       />
     </View>    
