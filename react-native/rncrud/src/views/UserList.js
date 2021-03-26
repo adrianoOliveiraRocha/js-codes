@@ -5,7 +5,7 @@ import UsersContext from '../context/UsersContext';
 
 export default props => {
   
-  const { state } = useContext(UsersContext);
+  const { state, dispatch } = useContext(UsersContext);
   
   function confirmUserDeletion(user) {
     Alert.alert(
@@ -14,7 +14,12 @@ export default props => {
       [
         {
           text: 'Sim',
-          onPress: () => console.warn('delete ' + user.id)
+          onPress: () => {
+            dispatch({
+              type: 'deleteUser',
+              payload: user
+            })
+          }
         },
         { 
           text: 'Não' 
