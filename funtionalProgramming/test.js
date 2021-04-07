@@ -1,22 +1,23 @@
-const addTiming = require('./keep/addTiming');
-const memoize = require('./keep/memoize.js');
-const fib = require('./keep/fib');
+'strict'
+// using clousures to encapsulate private variables
 
-function memoize2(fn) {
-  let cache = {};
-  return function(x) {
-    if (fn.length === 1) {
-      return (x in cache ? cache[x] : (cache[x] = fn(x)));
-    } else {
-      return fn;
-    }
-  }
+const moduleName = function() {
+	let privateState = 0;
+	this.privateFunction = function() {
+		console.log("My private function: " + privateState);
+	}
+
+	return {
+		publicState: 1,
+		publicFunction() {
+			console.log('My public function');
+			console.log("My private state: ", privateState);
+			// console.log(privateFunction());
+		}
+	}
 }
 
-
-const fibMemoized = memoize2(fib);
-console.log('Using fib');
-addTiming(fib)(44);
-console.log("\n");
-console.log('Using memoized fib');
-addTiming(fibMemoized)(44);
+const mn = new moduleName();
+console.log(mn.publicState);
+mn.publicFunction();
+mn.privateFunction();
