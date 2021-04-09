@@ -1,23 +1,16 @@
 'strict'
-// using clousures to encapsulate private variables
 
-const moduleName = function() {
-	let privateState = 0;
-	this.privateFunction = function() {
-		console.log("My private function: " + privateState);
+var test = false;
+var sayMoo;
+
+if(test) {
+	sayMoo = () => {
+		return "true moo";
 	}
-
-	return {
-		publicState: 1,
-		publicFunction() {
-			console.log('My public function');
-			console.log("My private state: ", privateState);
-			// console.log(privateFunction());
-		}
+} else {
+	sayMoo = () => {
+		return "false moo";
 	}
 }
 
-const mn = new moduleName();
-console.log(mn.publicState);
-mn.publicFunction();
-mn.privateFunction();
+console.log(sayMoo());

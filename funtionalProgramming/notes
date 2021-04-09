@@ -3,6 +3,10 @@
     Parameters are placeholders for potential values that will be passed, and arguments are
     the actual values passed to the function.
 
+2 - Function declarations are allowed to appear only in the program or function body.
+They cannot appear in a block ( { ... } ). Blocks can only contain statements and
+not function declarations. Use function expressions indeed.
+
 
 https://subscription.packtpub.com/book/web_development/9781787287440/6/ch06lvl1sec32/wrapping-functions
 // Working more seriously
