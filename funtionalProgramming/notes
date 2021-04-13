@@ -9,4 +9,9 @@ not function declarations. Use function expressions indeed.
 
 
 https://subscription.packtpub.com/book/web_development/9781787287440/6/ch06lvl1sec32/wrapping-functions
-// Working more seriously
+
+
+apply(context, [arg, arg2, ..., argn])
+call(context, arg1, arg2, ..., argn)
+
+()

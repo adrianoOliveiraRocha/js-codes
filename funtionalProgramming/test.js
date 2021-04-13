@@ -1,16 +1,19 @@
 'strict'
 
-var test = false;
-var sayMoo;
-
-if(test) {
-	sayMoo = () => {
-		return "true moo";
-	}
-} else {
-	sayMoo = () => {
-		return "false moo";
-	}
+function privateTest() {
+  var points = 0
+  this.getPoints = function() {
+    this.test = 'I am testing'
+    return "private points: " + points + ' ' + this.test
+  }
+  
+  this.score = function() {
+    points++
+  }
 }
 
-console.log(sayMoo());
+const pt = new privateTest();
+console.log(pt.getPoints())
+pt.score();
+console.log(pt.getPoints()) 
+
