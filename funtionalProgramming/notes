@@ -14,4 +14,6 @@ https://subscription.packtpub.com/book/web_development/9781787287440/6/ch06lvl1s
 apply(context, [arg, arg2, ..., argn])
 call(context, arg1, arg2, ..., argn)
 
+Use function declarations instead of function expressions
+
 ()
