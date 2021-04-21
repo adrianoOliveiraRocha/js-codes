@@ -1,4 +1,12 @@
 'strict'
 // ()
-console.log(/\bcat\b/.test("a black catdf"))
 
+let member = "global"
+
+function f() {
+  this.member = "f"
+}
+
+let o = new f()
+console.log(o.member)
+  
