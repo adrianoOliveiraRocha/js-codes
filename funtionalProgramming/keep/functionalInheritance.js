@@ -1,6 +1,4 @@
 'strict'
-// ()
-
 /* 
 ParentObject.call(this) is necessary to correctly initialize the object being
 created 
@@ -10,7 +8,6 @@ function Employee() {
   this.name = ''
   this.dept = 'None'
   this.salary = 0.00
-  this.test = function() { console.log("Test") }
 }
 // Manager
 function Manager() {
@@ -42,9 +39,6 @@ function Engineer() {
   this.salary = 80000
 }
 Engineer.prototype = Object.create(TeamLead.prototype)
-
-const generice = new Engineer()
-console.log(generice)
 
 
 
