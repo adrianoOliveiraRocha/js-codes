@@ -1,3 +1,8 @@
+<next> 
+  page 343: If you're looking to see how to implement a basic stream,
+  then you can base it on the observer pattern outlined in Chapter 5, Behavioral      Patterns.
+</next>
+
 1 - If you sometimes wonder about the difference between arguments and parameters, a mnemonic
     with some alliteration may help: Parameters are Potential, Arguments are Actual.
     Parameters are placeholders for potential values that will be passed, and arguments are
