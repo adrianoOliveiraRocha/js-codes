@@ -1,16 +1,19 @@
 'strict'
+
 const GoodStandingState = require('./GoodStandingState')
 
 class BankAccountManager {
   constructor() {
-    console.log(GoodStandingStage)
-//    this.currentState = new GoodStandingStage(this)
+    this.balance = 0
+    this.currentState = new GoodStandingState(this)
   }
-  Deposit() {
+  Deposit(amount) {
     this.currentState.Deposit(amount)
+    console.log("Current State: ", this.currentState.constructor.name)
   }
   Withdraw(amount) {
     this.currentState.Withdraw(amount)
+    console.log("Current State: ", this.currentState.constructor.name)
   }
   addToBalance(amount) {
     this.balance += amount
@@ -24,3 +27,4 @@ class BankAccountManager {
 }
 
 module.exports = BankAccountManager
+

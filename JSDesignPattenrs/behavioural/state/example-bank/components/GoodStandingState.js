@@ -1,5 +1,7 @@
 'strict'
 
+const OverdrawnState = require('./OverdrawnState')
+
 class GoodStandingState {
   constructor(manager) {
     this.manager = manager
@@ -15,4 +17,4 @@ class GoodStandingState {
   }
 }
 
-module.exports = GoodStandingState
+module.exports = GoodStandingState;
