@@ -1,6 +1,6 @@
 const log = require('./../../helpers/Log');
 
-function Shipping() {
+function Shipping() { // Interface
   this.company = null;
 }
 
@@ -16,19 +16,19 @@ Shipping.prototype = {
 
 function UPS() {
   this.calculate = function(package) {
-    return "$45.95";
+    return 45.95;
   }
 }
 
 function USPS() {
   this.calculate = function(package) {
-    return "$39.49";
+    return 39.49;
   }
 }
 
 function Fedex() {
   this.calculate = function(package) {
-    return "$43.20";
+    return 43.20;
   }
 } 
 
@@ -40,11 +40,11 @@ function run() {
 
   var shipping = new Shipping();
   shipping.setStrategy(ups);
-  log.add("UPS strategy: " + shipping.calculate(package));
+  log.add("UPS strategy: $" + shipping.calculate(package));
   shipping.setStrategy(usps);
-  log.add("USPS strategy: " + shipping.calculate(package));
+  log.add("USPS strategy: $" + shipping.calculate(package));
   shipping.setStrategy(fedex);
-  log.add("FEDEX strategy: " + shipping.calculate(package));
+  log.add("FEDEX strategy: $" + shipping.calculate(package));
 
   log.show();
 }

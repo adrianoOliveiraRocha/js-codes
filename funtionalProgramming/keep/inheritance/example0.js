@@ -15,7 +15,7 @@ Castle.prototype.build = function() {
 }
 
 let Winterfell = function() {}
+Winterfell.prototype.build = Castle.prototype.build
 Winterfell.prototype.addGodsWood = function() {}
 let winterfell = new Winterfell()
-console.log(winterfell)
-
+winterfell.build()

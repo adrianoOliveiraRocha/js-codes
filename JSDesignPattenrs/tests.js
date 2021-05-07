@@ -1,45 +1,25 @@
-var BaseModule = (function() {
-  'use strict';
+'strict'
 
-  var _name;
-  var _age;
+// Object.create(prototype [, propertiesObject ] )
 
-  return {
-    setName(name) {
-      _name = name;
-    },
-
-    getName() {
-      return _name;
-    },
-
-    setAge(age) {
-      _age = age;
-    },
-
-    getAge() {
-      return _age;
-    }
-  }
-
-})();
-
-var baseMethods = {
-  otherPublicMethod() {
-    return 'other public method';
-  }
+function Person(name) {
+  this.name = name
 }
 
-function mixin(module, baseMethods) {
-  Object.keys(baseMethods).forEach(key => {
-    if(!(key in module)) {
-      module[key] = baseMethods[key];
-    }
-  })
-  return module;
+var Woman = Object.create(Person)
+Woman.prototype.weithPuzzy = function(weigth) {
+  this.weigth = weigth
 }
+Woman.prototype.getWeigth = function() {
+  return this.weigth
+}
+console.log(Person)
+console.log(Woman)
 
-var Module1 = mixin(BaseModule, baseMethods);
+let w1 = new Woman()
+w1.weigth(50)
 
-console.log(Module1);
+
+
+
 
