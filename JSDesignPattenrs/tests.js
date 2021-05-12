@@ -18,6 +18,17 @@ const KingJoffery = (function () {
 
 })()
 
+const KingAerys = (function(){
+  function KingAerys() {}
+  
+  KingAerys.prototype.makeDecision = function() {
+    console.log("Decision of the KingAerys")
+  }
+  
+  return KingAerys
+  
+})()
+
 const LordConnington = (function() {
   
   function LordConnington() {}
@@ -25,6 +36,8 @@ const LordConnington = (function() {
   LordConnington.prototype.makeDecision = function() {
     console.log("Decision Lord Conninton");
   }
+  
+  return LordConnington
   
 })()
 
@@ -42,37 +55,42 @@ const LordTywin = (function() {
 
 })()
 
-const LannisterFactory = (function() {
-  // abstractFactory
-  function LannisterFactory() {
+// abstractFactory
+const LennisterFactory = (function() {
+  
+  function LennisterFactory() {
 
   }
 
-  LannisterFactory.prototype.getKing = function() {
+  LennisterFactory.prototype.getKing = function() {
     return new KingJoffery()
   }
 
-  LannisterFactory.prototype.getHandOfTheKing = function() {
+  LennisterFactory.prototype.getHandOfTheKing = function() {
     return new LordTywin()
   }
 
-  return LannisterFactory
+  return LennisterFactory
 
 })()
 
+// abstractFactory
 const TargaryenFactory = (function() {
-  // abstractFactory
+  
   function TargaryenFactory() {
 
   }
 
   TargaryenFactory.prototype.getKing = function() {
-
+    return new KingAerys()
   }
 
   TargaryenFactory.prototype.getHandOfTheKing = function() {
     return new LordConnington()
   }
+  
+  return TargaryenFactory
+  
 })()
 
 const CourtSession = (function() {
@@ -88,7 +106,20 @@ const CourtSession = (function() {
       this.abstractFactory.getKing().makeDecision()
     }
   }
+  
+  return CourtSession
+  
 })()
+
+let courtSession1 = new CourtSession(new TargaryenFactory())
+courtSession1.complainPresented({severity: 8})
+courtSession1.complainPresented({severity: 11})
+
+let courtSession2 = new CourtSession(new LennisterFactory())
+courtSession2.complainPresented({severity: 8})
+courtSession2.complainPresented({severity: 12})
+
+
 
 
 
