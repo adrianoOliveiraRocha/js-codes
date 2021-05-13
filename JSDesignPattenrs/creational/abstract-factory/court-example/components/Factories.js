@@ -21,11 +21,10 @@ const LennisterFactory = (function() {
 
 })()
 
-// abstractFactory
 const TargaryenFactory = (function() {
   
   function TargaryenFactory() {
-
+    // console.log("TargaryenFactory created")
   }
 
   TargaryenFactory.prototype.getKing = function() {

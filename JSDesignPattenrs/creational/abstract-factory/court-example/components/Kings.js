@@ -22,7 +22,7 @@ const KingAerys = (function(){
   function KingAerys() {}
   
   KingAerys.prototype.makeDecision = function() {
-    console.log("Decision of the KingAerys")
+    console.log("Decision of the King Aerys")
   }
   
   return KingAerys

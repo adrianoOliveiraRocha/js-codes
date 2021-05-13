@@ -66,10 +66,8 @@ function Truck() {
 
 function run() {
   var shop = new Shop()
-  var carBuilder = new CarBuilder()
-  var truckBuider = new TruckBuider()
-  var car = shop.construct(carBuilder)
-  var truck = shop.construct(truckBuider)
+  var car = shop.construct(new CarBuilder())
+  var truck = shop.construct(new TruckBuider())
   
   car.say()
   truck.say()

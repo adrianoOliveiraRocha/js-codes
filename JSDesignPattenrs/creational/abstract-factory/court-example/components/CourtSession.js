@@ -8,9 +8,9 @@ const CourtSession = (function() {
 
 	CourtSession.prototype.complaintPresented = function(complaint) {
 		if (complaint.severity < this.COMPLAINT_THRESHOLD) {
-			this.abstractFactory.getHandOfTheKing().makeDesicion()
+			this.abstractFactory.getHandOfTheKing().makeDecision()
 		} else {
-			this.abstractFactory.getKing().makeDesicion()
+			this.abstractFactory.getKing().makeDecision()
 		}
 	}
 

@@ -2,10 +2,12 @@
 
 const LordConnington = (function() {
   
-  function LordConnington() {}
+  function LordConnington() {
+    // console.log("LordConnington created")
+  }
   
   LordConnington.prototype.makeDecision = function() {
-    console.log("Decision Lord Conninton");
+    console.log("Decision of the Lord Conninton");
   }
   
   return LordConnington
@@ -19,7 +21,7 @@ const LordTywin = (function() {
   }
 
   LordTywin.prototype.makeDecision = function() {
-    console.log("Decision Lord Tywin");
+    console.log("Decision of the Lord Tywin");
   }
 
   return LordTywin
