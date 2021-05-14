@@ -21,15 +21,44 @@ if (!firebase.apps.length) {
   firebase.app()
 }
 
-export default function App() {
+export default function App(props) {
+
+  const [email, setEmail] = React.useState()
+  const [password, setPassword] = React.useState()
+
+  function signUpUser(mail, password) {
+
+    try {
+      if (password.length < 6) {
+        alert("Please, enter atleast 6 characters")
+      }
+
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+      
+    } catch (error) {
+      console.log(error.toString())
+    }
+
+  }
+
+  function login(email, password) {
+    alert(password)
+  }
+
   return (    
     <Container style={styles.container}>
+      <Header>
+        <Text style={{color: 'white', fontSize: 25, justifyContent: 'center', alignItems: 'center'}}>
+          My Header
+        </Text>
+      </Header>
       <Form>
         <Item floatingLabel>
           <Label>Email</Label>
           <Input 
             autoCorrect={false}
             autoCaptalize="none"
+            onChangeText={email => setEmail(email)}
           />
         </Item>
 
@@ -39,6 +68,7 @@ export default function App() {
             secureTextEntry={true}
             autoCorrect={false}
             autoCaptalize="none"
+            onChangeText={password => setPassword(password)}
           />
         </Item>
 
@@ -47,6 +77,7 @@ export default function App() {
           full
           rounded
           success
+          onPress={() => login(email, password)}
         >
           <Text style={{color: 'white', fontSize: 20}}>Login</Text>
         </Button>
@@ -56,6 +87,7 @@ export default function App() {
           full
           rounded
           primary
+          onPress={() => signUpUser(email, password)}
         >
           <Text style={{color: 'white', fontSize: 18}}>Sign Up</Text>
         </Button>
