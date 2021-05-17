@@ -9,3 +9,5 @@ const Event = (function () {
 	return Event
 
 })()
+
+module.exports = Event

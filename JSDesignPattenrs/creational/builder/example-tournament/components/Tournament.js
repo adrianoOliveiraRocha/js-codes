@@ -4,6 +4,7 @@ const Tournament = (function () {
 
 	this.events = []
 	this.attendees = []
+	this.prizes = []
 	
 	function Tournament() {
 		//...
@@ -12,3 +13,5 @@ const Tournament = (function () {
 	return Tournament
 
 })()
+
+module.exports = Tournament

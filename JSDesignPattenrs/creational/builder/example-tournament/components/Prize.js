@@ -9,3 +9,5 @@ const Prize = (function () {
 	return Prize;
 
 })()
+
+module.exports = Prize

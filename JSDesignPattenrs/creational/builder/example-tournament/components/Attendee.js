@@ -9,3 +9,5 @@ const Attendee = (function () {
 	return Attendee
 	
 })()
+
+module.exports = Attendee
