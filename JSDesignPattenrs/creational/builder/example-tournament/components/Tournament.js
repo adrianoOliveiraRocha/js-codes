@@ -2,12 +2,10 @@
 
 const Tournament = (function () {
 
-	this.events = []
-	this.attendees = []
-	this.prizes = []
-	
 	function Tournament() {
-		//...
+		this.events = []
+		this.attendees = []
+		this.prizes = []
 	}
 
 	return Tournament

@@ -18,6 +18,7 @@ const LannisterTournamentBuilder = (function () {
 		tournament.attendees.push(new Attendee("Jamie"))
 		tournament.prizes.push(new Prize("Gold"))
 		tournament.prizes.push(new Prize("More Gold"))
+		return tournament
 	}
 
 	return LannisterTournamentBuilder
@@ -36,6 +37,8 @@ const BaratheonTournamentBuilder = (function () {
 		tournament.events.push(new Event("Melee"))
 		tournament.attendees.push(new Event("Stannis"))
 		tournament.attendees.push(new Event("Robert"))
+		tournament.prizes.push(new Prize("Prize 1"))
+		tournament.prizes.push(new Prize("Prize 2"))
 		return tournament
 	}
 
@@ -44,7 +47,7 @@ const BaratheonTournamentBuilder = (function () {
 })()
 
 const TournamentBuilder = (function () {
-
+	
 	function TournamentBuilder() {
 		//...
 	}
